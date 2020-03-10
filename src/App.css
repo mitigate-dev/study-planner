@@ -18,5 +18,10 @@
 }
 
 .Default-list li {
-  margin: 10px 0;
+  margin: 20px 0;
+}
+
+.Block-call-to-action {
+  text-align: center;
+  margin: 30px 0;
 }
