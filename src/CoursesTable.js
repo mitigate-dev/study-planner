@@ -5,6 +5,8 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import data from './Courses.json';
 import _groupBy from 'lodash/groupBy';
@@ -15,7 +17,14 @@ function CoursesRow({ entries }) {
   return (
     <TableRow>
       <TableCell>
-        {entries.map((e) => e.courseName).join(', ')}
+        {  (entries.length > 1)
+          ? <Select className="Course-dropdown">
+              {entries.map((course, i) => {
+                return (<MenuItem value={course.courseName}>{course.courseName}</MenuItem>)
+              })}
+            </Select>
+          : <span>{entries[0].courseName}</span>
+        }
       </TableCell>
     </TableRow>
   )
