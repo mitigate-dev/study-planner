@@ -47,6 +47,10 @@ function App() {
           Trešais solis -  uzzini par mācībām un eksāmeniem vidusskolā!
         </h2>
 
+        <p>
+          Šajā sadaļā būs informatīvs teksts par mācībām un eksāmeniem vidusskolā. Šajā sadaļā svarīgi ievietot Valsts pārbaudes darbu plānotāju:
+        </p>
+
       </Container>
     </div>
   );

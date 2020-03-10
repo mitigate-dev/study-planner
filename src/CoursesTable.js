@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -51,7 +52,7 @@ export default function CoursesTable() {
         Individuālais mācību plāns ir teju gatavs! Zaļajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, nosūti to sev uz e-pastu.
       </p>
 
-      <Table aria-label="simple table">
+      <Table component={Paper} aria-label="Courses table">
         <TableBody>
           {entriesByCourseTypes.map(([courseType, entries]) =>
             <CoursesTypeRows courseType={courseType} entries={entries} />
