@@ -32,7 +32,7 @@ function StudyDirections() {
       </ul>
 
       <TableContainer component={Paper}>
-        <Table aria-label="Study directions table">
+        <Table size="small" aria-label="Study directions table">
           <TableHead>
             <TableRow>
               <TableCell>N.p.k</TableCell>
