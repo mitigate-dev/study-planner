@@ -12,15 +12,21 @@ import _entries from 'lodash/entries';
 import _times from 'lodash/times';
 
 function CoursesRow({ entries }) {
+  return (
+    <TableRow>
+      <TableCell>
+        {entries.map((e) => e.courseName).join(', ')}
+      </TableCell>
+    </TableRow>
+  )
+}
+
+function CoursesRows({ entries }) {
   const repeat = entries[0].repeat;
   return (
     <React.Fragment>
       {_times(repeat).map((i) =>
-        <TableRow key={i}>
-          <TableCell>
-            {entries.map((e) => e.courseName).join(', ')}
-          </TableCell>
-        </TableRow>
+        <CoursesRow key={i} entries={entries} />
       )}
     </React.Fragment>
   )
@@ -34,7 +40,7 @@ function CoursesTypeRows({ courseType, entries }) {
         <TableCell><strong>{courseType}</strong></TableCell>
       </TableRow>
       {entriesByGroup.map(([group, entries]) =>
-        <CoursesRow key={group} entries={entries} />
+        <CoursesRows key={group} entries={entries} />
       )}
     </React.Fragment>
   )
