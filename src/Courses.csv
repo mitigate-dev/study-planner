@@ -1,0 +1,55 @@
+courseType,courseName,points10,points11,points12,group,repeat
+Padziļinātie kursi,Latviešu valoda un literatūra II,0,0,6,A,3
+Padziļinātie kursi,Angļu valoda II,0,0,6,A,3
+Padziļinātie kursi,Sociālās zinātnes II,0,0,7,A,3
+Padziļinātie kursi,Fizika II,0,0,7,A,3
+Padziļinātie kursi,Ķīmija II,0,0,6,A,3
+Padziļinātie kursi,Bioloģija II,0,0,6,A,3
+Padziļinātie kursi,Matemātika II,0,0,8,A,3
+Padziļinātie kursi,Dizains un tehnoloģijas II,0,0,6,A,3
+Padziļinātie kursi,Programmēšana II,0,0,6,A,3
+Padziļinātie kursi,Projekta darbs,0,0,2,A,3
+Pamatkursi,Latviešu valoda un literatūra I,6,6,0,B,1
+Pamatkursi,Angļu valoda I,4,4,0,C,1
+Pamatkursi,Vācu valoda (2. svešvaloda),2,2,2,D,1
+Pamatkursi,Krievu valoda (2. svešvaloda),2,2,2,D,1
+Pamatkursi,Vēsture un sociālās zinātnes I,0,6,0,E,1
+Pamatkursi,Kultūra un māksla I,6,0,0,F,1
+Pamatkursi,Fizika I,3,3,0,G,1
+Pamatkursi,Ķīmija I,3,3,0,H,1
+Pamatkursi,Bioloģija I,0,0,3,I,1
+Pamatkursi,Ģeogrāfija I,0,0,3,J,1
+Pamatkursi,Matemātika I (1. variants),6,6,0,K,1
+Pamatkursi,Matemātika I (2. variants),4,4,4,K,1
+Pamatkursi,Datorika,1,1,0,L,1
+Pamatkursi,Dizains un tehnoloģijas I,3,3,0,M,1
+Pamatkursi,Programmēšana I,3,3,0,N,1
+Pamatkursi,Sports un veselība,3,3,2,O,1
+Specializētie kursi,Spāņu valoda,3,3,3,P,1
+Specializētie kursi,Franču valoda,3,3,3,P,1
+Specializētie kursi,Filozofija (10. klasē),2,0,0,P,1
+Specializētie kursi,Filozofija (11. klasē),0,2,0,P,1
+Specializētie kursi,Filozofija (12. klasē),0,0,2,P,1
+Specializētie kursi,Uzņēmējdarbības pamati,2,2,0,P,1
+Specializētie kursi,Projektu vadība (10. klasē),2,0,0,P,1
+Specializētie kursi,Projektu vadība (11. klasē),0,2,0,P,1
+Specializētie kursi,Projektu vadība (12. klasē),0,0,2,P,1
+Specializētie kursi,Psiholoģija (10. klase),2,0,0,P,1
+Specializētie kursi,Psiholoģija (11. klasē),0,2,0,P,1
+Specializētie kursi,Psiholoģija (12. klasē),0,0,2,P,1
+Specializētie kursi,Cilvēka bioloģija,0,0,3,P,1
+Specializētie kursi,Kurss nav izvēlēts,0,0,0,P,1
+Fakultatīvie kursi,Spāņu valoda,3,3,3,Q,1
+Fakultatīvie kursi,Franču valoda,3,3,3,Q,1
+Fakultatīvie kursi,Filozofija (10. klasē),2,0,0,Q,1
+Fakultatīvie kursi,Filozofija (11. klasē),0,2,0,Q,1
+Fakultatīvie kursi,Filozofija (12. klasē),0,0,2,Q,1
+Fakultatīvie kursi,Uzņēmējdarbības pamati,2,2,0,Q,1
+Fakultatīvie kursi,Projektu vadība (10. klasē),2,0,0,Q,1
+Fakultatīvie kursi,Projektu vadība (11. klasē),0,2,0,Q,1
+Fakultatīvie kursi,Projektu vadība (12. klasē),0,0,2,Q,1
+Fakultatīvie kursi,Psiholoģija (10. klase),2,0,0,Q,1
+Fakultatīvie kursi,Psiholoģija (11. klasē),0,2,0,Q,1
+Fakultatīvie kursi,Psiholoģija (12. klasē),0,0,2,Q,1
+Fakultatīvie kursi,Cilvēka bioloģija,0,0,3,Q,1
+Fakultatīvie kursi,Kurss nav izvēlēts,0,0,0,Q,1

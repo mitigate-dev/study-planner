@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import IntroText from './IntroText';
 import StudyDirections from './StudyDirections';
 
+import CoursesTable from './CoursesTable';
+
 function App() {
   return (
     <div className="App">
@@ -43,7 +45,7 @@ function App() {
           Individuālais mācību plāns ir teju gatavs! Zaļajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, nosūti to sev uz e-pastu.
         </p>
 
-        {/* TODO : TE NĀK EBE BLOKS */}
+        <CoursesTable />
 
       </Container>
     </div>
