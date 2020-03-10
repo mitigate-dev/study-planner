@@ -1,9 +1,7 @@
 import React from 'react';
 import logo from './logo.png';
 import './App.css';
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import IntroText from './IntroText';
@@ -37,15 +35,17 @@ function App() {
           </Button>
         </Box>
 
-        <h2 className="Block-title">
-          Otrais solis - iepazīsti individuālo plānu!
-        </h2>
-
-        <p>
-          Individuālais mācību plāns ir teju gatavs! Zaļajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, nosūti to sev uz e-pastu.
-        </p>
-
         <CoursesTable />
+
+        <Box className="Block-call-to-action">
+          <Button variant="contained" color="primary">
+            Savu plānu esmu apskatījis! Vēlos to drukāt!
+          </Button>
+        </Box>
+
+        <h2 className="Block-title">
+          Trešais solis -  uzzini par mācībām un eksāmeniem vidusskolā!
+        </h2>
 
       </Container>
     </div>

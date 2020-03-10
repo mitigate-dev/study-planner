@@ -3,8 +3,6 @@ import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import data from './Courses.json';
@@ -44,12 +42,22 @@ function CoursesTypeRows({ courseType, entries }) {
 export default function CoursesTable() {
   const entriesByCourseTypes = _entries(_groupBy(data, (row) => row.courseType))
   return (
-    <Table aria-label="simple table">
-      <TableBody>
-        {entriesByCourseTypes.map(([courseType, entries]) =>
-          <CoursesTypeRows courseType={courseType} entries={entries} />
-        )}
-      </TableBody>
-    </Table>
+    <React.Fragment>
+      <h2 className="Block-title">
+        Otrais solis - iepazīsti individuālo plānu!
+      </h2>
+
+      <p>
+        Individuālais mācību plāns ir teju gatavs! Zaļajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, nosūti to sev uz e-pastu.
+      </p>
+
+      <Table aria-label="simple table">
+        <TableBody>
+          {entriesByCourseTypes.map(([courseType, entries]) =>
+            <CoursesTypeRows courseType={courseType} entries={entries} />
+          )}
+        </TableBody>
+      </Table>
+    </React.Fragment>
   );
 }
