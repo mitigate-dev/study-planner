@@ -28,4 +28,7 @@
 
 .Course-dropdown {
   width: 100%;
+  font-size: 0.875rem !important;
+  margin-top: -0.875rem;
+  margin-bottom: -0.875rem;
 }
