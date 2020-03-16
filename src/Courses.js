@@ -62,7 +62,7 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
           ? <Select
               className="Course-dropdown"
               onChange={handleChange}
-              value={selectedCourseIndex}
+              value={selectedCourseIndex !== -1 ? selectedCourseIndex : ''}
               autoWidth={true}
               disableUnderline
               displayEmpty
@@ -137,34 +137,36 @@ function CoursesTable() {
   const totalPoints = points10 + points11 + points12
 
   return (
-    <Table component={Paper} size="small" stickyHeader aria-label="Courses table">
-      <TableHead>
-        <TableRow>
-          <TableCell></TableCell>
-          <TableCell><strong>10. kl.</strong></TableCell>
-          <TableCell><strong>11. kl.</strong></TableCell>
-          <TableCell><strong>12. kl.</strong></TableCell>
-          <TableCell><strong>Kopā</strong></TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className={classes.headerRowCell}><strong>Mācību stundu kopskaits nedēļā</strong></TableCell>
-          <TableCell className={classes.headerRowCell}><strong><Points value={points10} max={36} /></strong></TableCell>
-          <TableCell className={classes.headerRowCell}><strong><Points value={points11} max={36} /></strong></TableCell>
-          <TableCell className={classes.headerRowCell}><strong><Points value={points12} max={36} /></strong></TableCell>
-          <TableCell className={classes.headerRowCell}><strong><Points value={totalPoints} /></strong></TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {_entries(rows).map(([courseType, entries]) =>
-          <React.Fragment key={courseType}>
-            <CoursesTypeRow courseType={courseType} entries={entries} />
-            {entries.map((entry, i) =>
-              <CoursesEntryRow key={i} courseType={courseType} entryIndex={i} {...entry} />
-            )}
-          </React.Fragment>
-        )}
-      </TableBody>
-    </Table>
+    <Paper>
+      <Table size="small" stickyHeader aria-label="Courses table">
+        <TableHead>
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell><strong>10. kl.</strong></TableCell>
+            <TableCell><strong>11. kl.</strong></TableCell>
+            <TableCell><strong>12. kl.</strong></TableCell>
+            <TableCell><strong>Kopā</strong></TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className={classes.headerRowCell}><strong>Mācību stundu kopskaits nedēļā</strong></TableCell>
+            <TableCell className={classes.headerRowCell}><strong><Points value={points10} max={36} /></strong></TableCell>
+            <TableCell className={classes.headerRowCell}><strong><Points value={points11} max={36} /></strong></TableCell>
+            <TableCell className={classes.headerRowCell}><strong><Points value={points12} max={36} /></strong></TableCell>
+            <TableCell className={classes.headerRowCell}><strong><Points value={totalPoints} /></strong></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {_entries(rows).map(([courseType, entries]) =>
+            <React.Fragment key={courseType}>
+              <CoursesTypeRow courseType={courseType} entries={entries} />
+              {entries.map((entry, i) =>
+                <CoursesEntryRow key={i} courseType={courseType} entryIndex={i} {...entry} />
+              )}
+            </React.Fragment>
+          )}
+        </TableBody>
+      </Table>
+    </Paper>
   )
 }
 
@@ -176,14 +178,14 @@ function CoursesButtons({ onNextStep }) {
 
   return (
     <Box className="Block-call-to-action">
-      {downloadLinkReady || 'Lūdzu uzgaidiet...'}
+      {downloadLinkReady ? null : 'Lūdzu uzgaidiet...'}
       <PDFDownloadLink document={document} fileName="plans.pdf">
         {({ blob, url, loading, error }) => {
           if (loading) return;
-          setDownloadLinkReady(true)
+          setTimeout(() => setDownloadLinkReady(true), 1)
           return (
             <Button variant="contained" color="primary">
-              Saglabāt PDF
+              Atvērt PDF formātā, lai drukātu vai saglabātu
             </Button>
           )
         }}

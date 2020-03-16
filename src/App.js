@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from './logo.png';
 import './App.css';
 import { Provider } from 'react-redux';
+import { HashRouter as Router } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -13,6 +14,7 @@ import store from './store';
 import IntroText from './IntroText';
 import StudyDirections from './StudyDirections';
 import Courses from './Courses';
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
@@ -68,8 +70,9 @@ function Step3({ onNextStep }) {
 }
 
 function Content() {
-  const defaultStep = parseInt(window.location.hash.substr(1), 10) || 0;
-  const [activeStep, setActiveStep] = useState(defaultStep);
+  const match = useRouteMatch("/:step");
+  const activeStep = match ? parseInt(match.params.step, 10) : 0;
+  const history = useHistory();
 
   return (
     <React.Fragment>
@@ -85,8 +88,8 @@ function Content() {
         </Step>
       </Stepper>
 
-      {activeStep === 0 && <Step1 onNextStep={() => { setActiveStep(1); window.scrollTo(0, 0) }} />}
-      {activeStep === 1 && <Step2 onNextStep={() => { setActiveStep(2); window.scrollTo(0, 0) }} />}
+      {activeStep === 0 && <Step1 onNextStep={() => { history.push("/1"); window.scrollTo(0, 0) }} />}
+      {activeStep === 1 && <Step2 onNextStep={() => { history.push("/2"); window.scrollTo(0, 0) }} />}
       {activeStep === 2 && <Step3 />}
     </React.Fragment>
   )
@@ -95,23 +98,25 @@ function Content() {
 function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <div className="App">
-          <Container maxWidth="md">
+      <Router>
+        <ThemeProvider theme={theme}>
+          <div className="App">
+            <Container maxWidth="md">
 
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-            </header>
+              <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+              </header>
 
-            <h1 className="Block-title">
-              Izveido savu vidusskolu!
-            </h1>
+              <h1 className="Block-title">
+                Izveido savu vidusskolu!
+              </h1>
 
-            <Content />
+              <Content />
 
-          </Container>
-        </div>
-      </ThemeProvider>
+            </Container>
+          </div>
+        </ThemeProvider>
+      </Router>
     </Provider>
   );
 }

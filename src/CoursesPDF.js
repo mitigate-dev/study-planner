@@ -113,7 +113,7 @@ export default function CoursesPDF({ rows }) {
                 {entries.map((entry, i) => {
                   const selectedCourse = entry.courses[entry.selectedCourseIndex] || nullCourse;
                   return (
-                    <TableRow>
+                    <TableRow key={i}>
                       <TableCell width="40%">{selectedCourse.courseName}</TableCell>
                       <TableCell width="15%">{selectedCourse.points10}</TableCell>
                       <TableCell width="15%">{selectedCourse.points11}</TableCell>
