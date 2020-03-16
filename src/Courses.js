@@ -137,9 +137,9 @@ function CoursesTable() {
       <TableHead>
         <TableRow>
           <TableCell></TableCell>
-          <TableCell><strong>10. klase</strong></TableCell>
-          <TableCell><strong>11. klase</strong></TableCell>
-          <TableCell><strong>12. klase</strong></TableCell>
+          <TableCell><strong>10. kl.</strong></TableCell>
+          <TableCell><strong>11. kl.</strong></TableCell>
+          <TableCell><strong>12. kl.</strong></TableCell>
           <TableCell><strong>Kopā</strong></TableCell>
         </TableRow>
         <TableRow>
@@ -172,7 +172,7 @@ export default function Courses() {
       </h2>
 
       <p>
-        Individuālais mācību plāns ir teju gatavs! Zaļajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, nosūti to sev uz e-pastu.
+        Individuālais mācību plāns ir teju gatavs! Zilajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, izdrukā vai saglabā PDF failā.
       </p>
 
       <CoursesTable />

@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import rows from './StudyDirectionsData';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -12,9 +11,9 @@ import TableRow from '@material-ui/core/TableRow';
 function StudyDirections() {
   return (
     <React.Fragment>
-      <h2 className="Block-title">
+      <h3 className="Block-title">
         Studiju virzieni un ieteikumi padziļināto kursu izvēlei
-      </h2>
+      </h3>
 
       <ul className="Default-list">
         <li>
