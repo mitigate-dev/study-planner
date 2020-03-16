@@ -25,20 +25,20 @@ Pamatkursi,Datorika,1,1,0,L,1
 Pamatkursi,Dizains un tehnoloģijas I,3,3,0,M,1
 Pamatkursi,Programmēšana I,3,3,0,N,1
 Pamatkursi,Sports un veselība,3,3,2,O,1
-Specializētie kursi,Spāņu valoda,3,3,3,P,1
-Specializētie kursi,Franču valoda,3,3,3,P,1
-Specializētie kursi,Filozofija (10. klasē),2,0,0,P,1
-Specializētie kursi,Filozofija (11. klasē),0,2,0,P,1
-Specializētie kursi,Filozofija (12. klasē),0,0,2,P,1
-Specializētie kursi,Uzņēmējdarbības pamati,2,2,0,P,1
-Specializētie kursi,Projektu vadība (10. klasē),2,0,0,P,1
-Specializētie kursi,Projektu vadība (11. klasē),0,2,0,P,1
-Specializētie kursi,Projektu vadība (12. klasē),0,0,2,P,1
-Specializētie kursi,Psiholoģija (10. klase),2,0,0,P,1
-Specializētie kursi,Psiholoģija (11. klasē),0,2,0,P,1
-Specializētie kursi,Psiholoģija (12. klasē),0,0,2,P,1
-Specializētie kursi,Cilvēka bioloģija,0,0,3,P,1
-Specializētie kursi,Kurss nav izvēlēts,0,0,0,P,1
+Specializētie kursi,Spāņu valoda,3,3,3,P,3
+Specializētie kursi,Franču valoda,3,3,3,P,3
+Specializētie kursi,Filozofija (10. klasē),2,0,0,P,3
+Specializētie kursi,Filozofija (11. klasē),0,2,0,P,3
+Specializētie kursi,Filozofija (12. klasē),0,0,2,P,3
+Specializētie kursi,Uzņēmējdarbības pamati,2,2,0,P,3
+Specializētie kursi,Projektu vadība (10. klasē),2,0,0,P,3
+Specializētie kursi,Projektu vadība (11. klasē),0,2,0,P,3
+Specializētie kursi,Projektu vadība (12. klasē),0,0,2,P,3
+Specializētie kursi,Psiholoģija (10. klase),2,0,0,P,3
+Specializētie kursi,Psiholoģija (11. klasē),0,2,0,P,3
+Specializētie kursi,Psiholoģija (12. klasē),0,0,2,P,3
+Specializētie kursi,Cilvēka bioloģija,0,0,3,P,3
+Specializētie kursi,Kurss nav izvēlēts,0,0,0,P,3
 Fakultatīvie kursi,Spāņu valoda,3,3,3,Q,1
 Fakultatīvie kursi,Franču valoda,3,3,3,Q,1
 Fakultatīvie kursi,Filozofija (10. klasē),2,0,0,Q,1
