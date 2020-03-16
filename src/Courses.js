@@ -108,7 +108,7 @@ function Points({value, max}) {
 }
 
 function CoursesTable() {
-  const rows = useSelector(state => state)
+  const rows = useSelector(state => state.coursesData)
 
   const selectedCourses = _flatMap(_values(rows)).map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
   const points10 = _sumBy(selectedCourses, (sc) => sc.points10)

@@ -13,14 +13,14 @@ import data from './Courses.json';
 //     { selectedCourse: ..., courses: [..., ...] }
 //   ]
 // }
-const initialState = {}
+const initialState = { coursesData: {} };
 const entriesByCourseTypes = _entries(_groupBy(data, (row) => row.courseType))
 entriesByCourseTypes.forEach(([courseType, entries]) => {
-  initialState[courseType] = [];
+  initialState.coursesData[courseType] = [];
   const entriesByGroup = _entries(_groupBy(entries, (row) => row.group))
   entriesByGroup.forEach(([group, entries]) => {
     _times(entries[0].repeat).forEach((i) => {
-      initialState[courseType].push({
+      initialState.coursesData[courseType].push({
         courseType,
         group,
         selectedCourseIndex: entries.length > 1 ? -1: 0,
@@ -34,9 +34,9 @@ const reducer = createReducer(initialState, {
   SELECT_COURSE: (state, { courseType, entryIndex, selectedCourseIndex }) => {
     // console.log('SELECT_COURSE', { courseType, entryIndex, selectedCourseIndex })
     // set selectedCourse
-    state[courseType][entryIndex].selectedCourseIndex = selectedCourseIndex
+    state.coursesData[courseType][entryIndex].selectedCourseIndex = selectedCourseIndex
     // get all entries
-    const entries = _flatMap(_values(state))
+    const entries = _flatMap(_values(state.coursesData))
     // reset disabled flag
     entries.forEach((e) => {
       e.courses.forEach((c) => {
