@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Tooltip from '@material-ui/core/Tooltip';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -8,6 +9,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import red from '@material-ui/core/colors/red';
 
 import data from './Courses.json';
 import _groupBy from 'lodash/groupBy';
@@ -16,7 +18,6 @@ import _times from 'lodash/times';
 import _sumBy from 'lodash/sumBy';
 import _flatMap from 'lodash/flatMap';
 import _values from 'lodash/values';
-import _cloneDeep from 'lodash/cloneDeep';
 
 import { configureStore, createReducer } from '@reduxjs/toolkit';
 import { Provider, useSelector, useDispatch } from 'react-redux';
@@ -43,17 +44,17 @@ entriesByCourseTypes.forEach(([courseType, entries]) => {
         courseType,
         group,
         selectedCourseIndex: entries.length > 1 ? -1: 0,
-        courses: _cloneDeep(entries),
+        courses: entries.map((e) => ({ ...e, disabled: false }))
       })
     })
   })
 })
 
-console.log(initialState)
+// console.log(initialState)
 
 const reducer = createReducer(initialState, {
   SELECT_COURSE: (state, { courseType, entryIndex, selectedCourseIndex }) => {
-    console.log('SELECT_COURSE', { courseType, entryIndex, selectedCourseIndex })
+    // console.log('SELECT_COURSE', { courseType, entryIndex, selectedCourseIndex })
     // set selectedCourse
     state[courseType][entryIndex].selectedCourseIndex = selectedCourseIndex
     // get all entries
@@ -140,6 +141,10 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
               className="Course-dropdown"
               onChange={handleChange}
               value={selectedCourseIndex}
+              autoWidth={true}
+              disableUnderline
+              displayEmpty
+              renderValue={(i) => ((courses[i] && courses[i].courseName) || <em>Izvēlies kursu ...</em>)}
             >
               {courses.map((course, i) =>
                 <MenuItem
@@ -147,7 +152,10 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
                   value={i}
                   disabled={course.disabled}
                 >
-                  {course.courseName}
+                  <span style={{width: '355px' }}>{course.courseName}</span>
+                  <span style={{width: '147px' }}>{course.points10}</span>
+                  <span style={{width: '147px' }}>{course.points11}</span>
+                  <span style={{width: '147px' }}>{course.points12}</span>
                 </MenuItem>
               )}
             </Select>
@@ -178,6 +186,18 @@ function CoursesTypeRow({ courseType, entries }) {
   )
 }
 
+function Points({value, max}) {
+  if (!max || value <= max) return value;
+
+  return (
+    <Tooltip title={`Punktu skaits nedrīkst pārsniegt ${max}`}>
+      <span style={{ color: red[500] }}>
+        {value}
+      </span>
+    </Tooltip>
+  );
+}
+
 function CoursesTable() {
   const rows = useSelector(state => state)
 
@@ -185,6 +205,7 @@ function CoursesTable() {
   const points10 = _sumBy(selectedCourses, (sc) => sc.points10)
   const points11 = _sumBy(selectedCourses, (sc) => sc.points11)
   const points12 = _sumBy(selectedCourses, (sc) => sc.points12)
+  const totalPoints = points10 + points11 + points12
 
   return (
     <Table component={Paper} size="small" stickyHeader aria-label="Courses table">
@@ -198,10 +219,11 @@ function CoursesTable() {
         </TableRow>
         <TableRow>
           <TableCell><strong>Mācību stundu kopskaits nedēļā</strong></TableCell>
-          <TableCell><strong>{points10}</strong></TableCell>
-          <TableCell><strong>{points11}</strong></TableCell>
-          <TableCell><strong>{points12}</strong></TableCell>
-          <TableCell><strong>{points10 + points11 + points12}</strong></TableCell>
+          <TableCell><strong><Points value={points10} max={36} /></strong></TableCell>
+          <TableCell><strong><Points value={points11} max={36} /></strong></TableCell>
+          <TableCell><strong><Points value={points12} max={36} /></strong></TableCell>
+          <TableCell><strong><Points value={totalPoints} /></strong>
+          </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
