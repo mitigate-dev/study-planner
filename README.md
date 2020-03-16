@@ -1,8 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## data.json
+## Deploy
 
+```bash
+now switch # mak it
+now --prod
 ```
+
+## Courses.json
+
+```bash
 jq -R -s -f csv2json.jq src/Courses.csv > src/Courses.json
 ```
 
