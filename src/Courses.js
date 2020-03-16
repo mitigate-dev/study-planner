@@ -10,118 +10,18 @@ import TableRow from '@material-ui/core/TableRow';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import red from '@material-ui/core/colors/red';
-
-import data from './Courses.json';
-import _groupBy from 'lodash/groupBy';
+import green from '@material-ui/core/colors/green';
+import { useSelector, useDispatch } from 'react-redux';
 import _entries from 'lodash/entries';
-import _times from 'lodash/times';
 import _sumBy from 'lodash/sumBy';
 import _flatMap from 'lodash/flatMap';
 import _values from 'lodash/values';
-
-import { configureStore, createReducer } from '@reduxjs/toolkit';
-import { Provider, useSelector, useDispatch } from 'react-redux';
 
 const nullCourse = {
   points10: 0,
   points11: 0,
   points12: 0
 }
-
-// {
-//   "Specializētie kursi": [
-//     { selectedCourse: ..., courses: [..., ...] }
-//   ]
-// }
-const initialState = {}
-const entriesByCourseTypes = _entries(_groupBy(data, (row) => row.courseType))
-entriesByCourseTypes.forEach(([courseType, entries]) => {
-  initialState[courseType] = [];
-  const entriesByGroup = _entries(_groupBy(entries, (row) => row.group))
-  entriesByGroup.forEach(([group, entries]) => {
-    _times(entries[0].repeat).forEach((i) => {
-      initialState[courseType].push({
-        courseType,
-        group,
-        selectedCourseIndex: entries.length > 1 ? -1: 0,
-        courses: entries.map((e) => ({ ...e, disabled: false }))
-      })
-    })
-  })
-})
-
-// console.log(initialState)
-
-const reducer = createReducer(initialState, {
-  SELECT_COURSE: (state, { courseType, entryIndex, selectedCourseIndex }) => {
-    // console.log('SELECT_COURSE', { courseType, entryIndex, selectedCourseIndex })
-    // set selectedCourse
-    state[courseType][entryIndex].selectedCourseIndex = selectedCourseIndex
-    // get all entries
-    const entries = _flatMap(_values(state))
-    // reset disabled flag
-    entries.forEach((e) => {
-      e.courses.forEach((c) => {
-        c.disabled = false
-      })
-    })
-    // disable courses based on `group`
-    const entriesByGroup = _entries(_groupBy(entries, (e) => e.group))
-    entriesByGroup.forEach(([group, groupEntries]) => {
-      const selectedCourseIndexes = groupEntries.map((e) => e.selectedCourseIndex)
-      groupEntries.forEach((e) => {
-        e.courses.forEach((c, i) => {
-          if (i === e.selectedCourseIndex) return;
-          if (selectedCourseIndexes.indexOf(i) === -1) return;
-          if (!c.points10 && !c.points11 && !c.points12) return; // Kurss nav izvlēlēts
-          c.disabled = true;
-        })
-      })
-    })
-    // disable courses based on `uniqBy`
-    const uniqBySelected = {};
-    entries.forEach((e) => {
-      const selectedCourse = (e.courses[e.selectedCourseIndex] || nullCourse);
-      if (!selectedCourse.uniqBy) return;
-      uniqBySelected[selectedCourse.uniqBy] = true;
-    });
-    entries.forEach((e) => {
-      const selectedCourse = (e.courses[e.selectedCourseIndex] || nullCourse);
-      e.courses.forEach((c) => {
-        if (!c.uniqBy) return;
-        if (!uniqBySelected[c.uniqBy]) return;
-        if (selectedCourse.uniqBy === c.uniqBy) return;
-        c.disabled = true;
-      });
-    });
-    // disable courses based on `requiredBy`
-    const allSelectedCourseNames = entries.map((e) => {
-      const selectedCourse = (e.courses[e.selectedCourseIndex] || nullCourse);
-      return selectedCourse.courseName;
-    });
-    entries.forEach((e) => {
-      let disableOthers = false;
-      // select the required course
-      e.courses.forEach((c, i) => {
-        if (!c.requiredBy) return
-        if (allSelectedCourseNames.indexOf(c.requiredBy) === -1) return;
-        e.selectedCourseIndex = i;
-        disableOthers = true;
-      })
-      // disable other courses
-      if (disableOthers) {
-        e.courses.forEach((c, i) => {
-          if (i === e.selectedCourseIndex) return;
-          c.disabled = true
-        })
-      }
-    })
-  }
-})
-
-const store = configureStore({
-  reducer
-})
 
 function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses }) {
   const dispatch = useDispatch();
@@ -133,8 +33,14 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
 
   const selectedCourse = courses[selectedCourseIndex] || nullCourse;
 
+  let style = {};
+
+  if (courses.length > 1) {
+    style.backgroundColor = green[50];
+  }
+
   return (
-    <TableRow>
+    <TableRow style={style}>
       <TableCell>
         {  (courses.length > 1)
           ? <Select
@@ -144,7 +50,10 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
               autoWidth={true}
               disableUnderline
               displayEmpty
-              renderValue={(i) => ((courses[i] && courses[i].courseName) || <em>Izvēlies kursu ...</em>)}
+              renderValue={(i) => (
+                (courses[i] && courses[i].courseName) ||
+                <em>Izvēlies kursu ...</em>
+              )}
             >
               {courses.map((course, i) =>
                 <MenuItem
@@ -242,18 +151,16 @@ function CoursesTable() {
 
 export default function Courses() {
   return (
-    <Provider store={store}>
-      <React.Fragment>
-        <h2 className="Block-title">
-          Otrais solis - iepazīsti individuālo plānu!
-        </h2>
+    <React.Fragment>
+      <h2 className="Block-title">
+        Otrais solis - iepazīsti individuālo plānu!
+      </h2>
 
-        <p>
-          Individuālais mācību plāns ir teju gatavs! Zaļajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, nosūti to sev uz e-pastu.
-        </p>
+      <p>
+        Individuālais mācību plāns ir teju gatavs! Zaļajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, nosūti to sev uz e-pastu.
+      </p>
 
-        <CoursesTable />
-      </React.Fragment>
-    </Provider>
+      <CoursesTable />
+    </React.Fragment>
   );
 }
