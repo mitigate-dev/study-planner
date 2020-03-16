@@ -48,16 +48,7 @@ function Step1({ onNextStep }) {
 function Step2({ onNextStep }) {
   return (
     <React.Fragment>
-      <Courses />
-
-      <Box className="Block-call-to-action">
-        <Button variant="contained" color="primary" onClick={onNextStep}>
-          Savu plānu esmu apskatījis! Vēlos uzzināt vairāk!
-        </Button>
-        <Button variant="contained" color="primary" onClick={() => window.print()}>
-          Savu plānu esmu apskatījis! Vēlos to drukāt!
-        </Button>
-      </Box>
+      <Courses onNextStep={onNextStep} />
     </React.Fragment>
   )
 }
@@ -77,7 +68,8 @@ function Step3({ onNextStep }) {
 }
 
 function Content() {
-  const [activeStep, setActiveStep] = useState(0);
+  const defaultStep = parseInt(window.location.hash.substr(1), 10) || 0;
+  const [activeStep, setActiveStep] = useState(defaultStep);
 
   return (
     <React.Fragment>

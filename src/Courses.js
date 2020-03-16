@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import Box from '@material-ui/core/Box';
 import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -18,6 +20,8 @@ import _entries from 'lodash/entries';
 import _sumBy from 'lodash/sumBy';
 import _flatMap from 'lodash/flatMap';
 import _values from 'lodash/values';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import CoursesPDF from './CoursesPDF';
 
 const useStyles = makeStyles({
   headerRowCell: {
@@ -164,7 +168,37 @@ function CoursesTable() {
   )
 }
 
-export default function Courses() {
+function CoursesButtons({ onNextStep }) {
+  const rows = useSelector(state => state.coursesData)
+  const [downloadLinkReady, setDownloadLinkReady] = useState(false);
+
+  const document = <CoursesPDF rows={rows} />;
+
+  return (
+    <Box className="Block-call-to-action">
+      {downloadLinkReady || 'Lūdzu uzgaidiet...'}
+      <PDFDownloadLink document={document} fileName="plans.pdf">
+        {({ blob, url, loading, error }) => {
+          if (loading) return;
+          setDownloadLinkReady(true)
+          return (
+            <Button variant="contained" color="primary">
+              Saglabāt PDF
+            </Button>
+          )
+        }}
+      </PDFDownloadLink>
+      &nbsp;
+      {downloadLinkReady &&
+        <Button variant="contained" color="primary" onClick={onNextStep}>
+          Vēlos uzzināt vairāk
+        </Button>
+      }
+    </Box>
+  )
+}
+
+export default function Courses({ onNextStep }) {
   return (
     <React.Fragment>
       <h2 className="Block-title">
@@ -176,6 +210,7 @@ export default function Courses() {
       </p>
 
       <CoursesTable />
+      <CoursesButtons onNextStep={onNextStep} />
     </React.Fragment>
   );
 }
