@@ -6,7 +6,9 @@
     "points11": 0,
     "points12": 6,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -15,7 +17,9 @@
     "points11": 0,
     "points12": 6,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -24,7 +28,9 @@
     "points11": 0,
     "points12": 7,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -33,7 +39,9 @@
     "points11": 0,
     "points12": 7,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -42,7 +50,9 @@
     "points11": 0,
     "points12": 6,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -51,7 +61,9 @@
     "points11": 0,
     "points12": 6,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -60,7 +72,9 @@
     "points11": 0,
     "points12": 8,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -69,7 +83,9 @@
     "points11": 0,
     "points12": 6,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "DP",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -78,7 +94,9 @@
     "points11": 0,
     "points12": 6,
     "group": "A",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "DP",
+    "requiredBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -87,7 +105,9 @@
     "points11": 0,
     "points12": 2,
     "group": "X",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -96,7 +116,9 @@
     "points11": 6,
     "points12": 0,
     "group": "B",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -105,7 +127,9 @@
     "points11": 4,
     "points12": 0,
     "group": "C",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -114,7 +138,9 @@
     "points11": 2,
     "points12": 2,
     "group": "D",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -123,7 +149,9 @@
     "points11": 2,
     "points12": 2,
     "group": "D",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -132,7 +160,9 @@
     "points11": 6,
     "points12": 0,
     "group": "E",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -141,7 +171,9 @@
     "points11": 0,
     "points12": 0,
     "group": "F",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -150,7 +182,9 @@
     "points11": 3,
     "points12": 0,
     "group": "G",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -159,7 +193,9 @@
     "points11": 3,
     "points12": 0,
     "group": "H",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -168,7 +204,9 @@
     "points11": 0,
     "points12": 3,
     "group": "I",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -177,7 +215,9 @@
     "points11": 0,
     "points12": 3,
     "group": "J",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -186,7 +226,9 @@
     "points11": 6,
     "points12": 0,
     "group": "K",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": "Matemātika II"
   },
   {
     "courseType": "Pamatkursi",
@@ -195,7 +237,9 @@
     "points11": 4,
     "points12": 4,
     "group": "K",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -204,7 +248,9 @@
     "points11": 1,
     "points12": 0,
     "group": "L",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -212,8 +258,10 @@
     "points10": 3,
     "points11": 3,
     "points12": 0,
-    "group": "M",
-    "repeat": 1
+    "group": "L",
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": "Dizains un tehnoloģijas II"
   },
   {
     "courseType": "Pamatkursi",
@@ -221,8 +269,10 @@
     "points10": 3,
     "points11": 3,
     "points12": 0,
-    "group": "N",
-    "repeat": 1
+    "group": "L",
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": "Programmēšana II"
   },
   {
     "courseType": "Pamatkursi",
@@ -231,124 +281,9 @@
     "points11": 3,
     "points12": 2,
     "group": "O",
-    "repeat": 1
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Spāņu valoda",
-    "points10": 3,
-    "points11": 3,
-    "points12": 3,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Franču valoda",
-    "points10": 3,
-    "points11": 3,
-    "points12": 3,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Filozofija (10. klasē)",
-    "points10": 2,
-    "points11": 0,
-    "points12": 0,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Filozofija (11. klasē)",
-    "points10": 0,
-    "points11": 2,
-    "points12": 0,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Filozofija (12. klasē)",
-    "points10": 0,
-    "points11": 0,
-    "points12": 2,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Uzņēmējdarbības pamati",
-    "points10": 2,
-    "points11": 2,
-    "points12": 0,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Projektu vadība (10. klasē)",
-    "points10": 2,
-    "points11": 0,
-    "points12": 0,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Projektu vadība (11. klasē)",
-    "points10": 0,
-    "points11": 2,
-    "points12": 0,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Projektu vadība (12. klasē)",
-    "points10": 0,
-    "points11": 0,
-    "points12": 2,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Psiholoģija (10. klase)",
-    "points10": 2,
-    "points11": 0,
-    "points12": 0,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Psiholoģija (11. klasē)",
-    "points10": 0,
-    "points11": 2,
-    "points12": 0,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Psiholoģija (12. klasē)",
-    "points10": 0,
-    "points11": 0,
-    "points12": 2,
-    "group": "P",
-    "repeat": 3
-  },
-  {
-    "courseType": "Specializētie kursi",
-    "courseName": "Cilvēka bioloģija",
-    "points10": 0,
-    "points11": 0,
-    "points12": 3,
-    "group": "P",
-    "repeat": 3
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -357,124 +292,130 @@
     "points11": 0,
     "points12": 0,
     "group": "P",
-    "repeat": 3
+    "repeat": 3,
+    "uniqBy": "",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
-    "courseName": "Spāņu valoda",
-    "points10": 3,
-    "points11": 3,
-    "points12": 3,
-    "group": "Q",
-    "repeat": 1
-  },
-  {
-    "courseType": "Fakultatīvie kursi",
-    "courseName": "Franču valoda",
-    "points10": 3,
-    "points11": 3,
-    "points12": 3,
-    "group": "Q",
-    "repeat": 1
-  },
-  {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Filozofija (10. klasē)",
     "points10": 2,
     "points11": 0,
     "points12": 0,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "FL",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Filozofija (11. klasē)",
     "points10": 0,
     "points11": 2,
     "points12": 0,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "FL",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Filozofija (12. klasē)",
     "points10": 0,
     "points11": 0,
     "points12": 2,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "FL",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Uzņēmējdarbības pamati",
     "points10": 2,
     "points11": 2,
     "points12": 0,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "UP",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Projektu vadība (10. klasē)",
     "points10": 2,
     "points11": 0,
     "points12": 0,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "PV",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Projektu vadība (11. klasē)",
     "points10": 0,
     "points11": 2,
     "points12": 0,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "PV",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Projektu vadība (12. klasē)",
     "points10": 0,
     "points11": 0,
     "points12": 2,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "PV",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Psiholoģija (10. klase)",
     "points10": 2,
     "points11": 0,
     "points12": 0,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "PS",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Psiholoģija (11. klasē)",
     "points10": 0,
     "points11": 2,
     "points12": 0,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "PS",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Psiholoģija (12. klasē)",
     "points10": 0,
     "points11": 0,
     "points12": 2,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "PS",
+    "requiredBy": ""
   },
   {
-    "courseType": "Fakultatīvie kursi",
+    "courseType": "Specializētie kursi",
     "courseName": "Cilvēka bioloģija",
     "points10": 0,
     "points11": 0,
     "points12": 3,
-    "group": "Q",
-    "repeat": 1
+    "group": "P",
+    "repeat": 3,
+    "uniqBy": "CB",
+    "requiredBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -483,6 +424,151 @@
     "points11": 0,
     "points12": 0,
     "group": "Q",
-    "repeat": 1
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Spāņu valoda",
+    "points10": 3,
+    "points11": 3,
+    "points12": 3,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Franču valoda",
+    "points10": 3,
+    "points11": 3,
+    "points12": 3,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Filozofija (10. klasē)",
+    "points10": 2,
+    "points11": 0,
+    "points12": 0,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "FL",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Filozofija (11. klasē)",
+    "points10": 0,
+    "points11": 2,
+    "points12": 0,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "FL",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Filozofija (12. klasē)",
+    "points10": 0,
+    "points11": 0,
+    "points12": 2,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "FL",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Uzņēmējdarbības pamati",
+    "points10": 2,
+    "points11": 2,
+    "points12": 0,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "UP",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Projektu vadība (10. klasē)",
+    "points10": 2,
+    "points11": 0,
+    "points12": 0,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "PV",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Projektu vadība (11. klasē)",
+    "points10": 0,
+    "points11": 2,
+    "points12": 0,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "PV",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Projektu vadība (12. klasē)",
+    "points10": 0,
+    "points11": 0,
+    "points12": 2,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "PV",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Psiholoģija (10. klase)",
+    "points10": 2,
+    "points11": 0,
+    "points12": 0,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "PS",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Psiholoģija (11. klasē)",
+    "points10": 0,
+    "points11": 2,
+    "points12": 0,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "PS",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Psiholoģija (12. klasē)",
+    "points10": 0,
+    "points11": 0,
+    "points12": 2,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "PS",
+    "requiredBy": ""
+  },
+  {
+    "courseType": "Fakultatīvie kursi",
+    "courseName": "Cilvēka bioloģija",
+    "points10": 0,
+    "points11": 0,
+    "points12": 3,
+    "group": "Q",
+    "repeat": 1,
+    "uniqBy": "CB",
+    "requiredBy": ""
   }
 ]

@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import IntroText from './IntroText';
 import StudyDirections from './StudyDirections';
 
-import CoursesTable from './CoursesTable';
+import Courses from './Courses';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
           </Button>
         </Box>
 
-        <CoursesTable />
+        <Courses />
 
         <Box className="Block-call-to-action">
           <Button variant="contained" color="primary">
