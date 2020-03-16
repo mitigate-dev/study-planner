@@ -9,13 +9,25 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import { makeStyles } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
-import green from '@material-ui/core/colors/green';
+import blue from '@material-ui/core/colors/blue';
+import grey from '@material-ui/core/colors/grey';
 import { useSelector, useDispatch } from 'react-redux';
 import _entries from 'lodash/entries';
 import _sumBy from 'lodash/sumBy';
 import _flatMap from 'lodash/flatMap';
 import _values from 'lodash/values';
+
+const useStyles = makeStyles({
+  headerRowCell: {
+    backgroundColor: '#0B5F87',
+    color: '#fff',
+  },
+  courseTypeRow: {
+    backgroundColor: grey[100]
+  }
+});
 
 const nullCourse = {
   points10: 0,
@@ -36,7 +48,7 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
   let style = {};
 
   if (courses.length > 1) {
-    style.backgroundColor = green[50];
+    style.backgroundColor = blue[50];
   }
 
   return (
@@ -84,8 +96,10 @@ function CoursesTypeRow({ courseType, entries }) {
   const points10 = _sumBy(selectedCourses, (sc) => sc.points10)
   const points11 = _sumBy(selectedCourses, (sc) => sc.points11)
   const points12 = _sumBy(selectedCourses, (sc) => sc.points12)
+  const classes = useStyles();
+
   return (
-    <TableRow>
+    <TableRow className={classes.courseTypeRow}>
       <TableCell><strong>{courseType}</strong></TableCell>
       <TableCell><strong>{points10}</strong></TableCell>
       <TableCell><strong>{points11}</strong></TableCell>
@@ -108,6 +122,8 @@ function Points({value, max}) {
 }
 
 function CoursesTable() {
+  const classes = useStyles();
+
   const rows = useSelector(state => state.coursesData)
 
   const selectedCourses = _flatMap(_values(rows)).map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
@@ -121,18 +137,17 @@ function CoursesTable() {
       <TableHead>
         <TableRow>
           <TableCell></TableCell>
-          <TableCell>10. klase</TableCell>
-          <TableCell>11. klase</TableCell>
-          <TableCell>12. klase</TableCell>
-          <TableCell>Kopā</TableCell>
+          <TableCell><strong>10. klase</strong></TableCell>
+          <TableCell><strong>11. klase</strong></TableCell>
+          <TableCell><strong>12. klase</strong></TableCell>
+          <TableCell><strong>Kopā</strong></TableCell>
         </TableRow>
         <TableRow>
-          <TableCell><strong>Mācību stundu kopskaits nedēļā</strong></TableCell>
-          <TableCell><strong><Points value={points10} max={36} /></strong></TableCell>
-          <TableCell><strong><Points value={points11} max={36} /></strong></TableCell>
-          <TableCell><strong><Points value={points12} max={36} /></strong></TableCell>
-          <TableCell><strong><Points value={totalPoints} /></strong>
-          </TableCell>
+          <TableCell className={classes.headerRowCell}><strong>Mācību stundu kopskaits nedēļā</strong></TableCell>
+          <TableCell className={classes.headerRowCell}><strong><Points value={points10} max={36} /></strong></TableCell>
+          <TableCell className={classes.headerRowCell}><strong><Points value={points11} max={36} /></strong></TableCell>
+          <TableCell className={classes.headerRowCell}><strong><Points value={points12} max={36} /></strong></TableCell>
+          <TableCell className={classes.headerRowCell}><strong><Points value={totalPoints} /></strong></TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
