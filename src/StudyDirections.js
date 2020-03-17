@@ -12,6 +12,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import IntroText from './IntroText';
+
 import { useSelector, useDispatch } from 'react-redux';
 
 function StudyDirectionCoursesEntryRow({ entryIndex, entry }) {
@@ -91,6 +93,12 @@ function StudyDirections({ onNextStep }) {
 
   return (
     <React.Fragment>
+      <h2 className="Block-title">
+        Pirmais solis - izvēlies padziļinātos un specializētos kursus! 
+      </h2>
+
+      <IntroText />
+
       <h2 className="Block-title">
         Studiju virzieni un ieteikumi padziļināto kursu izvēlei
       </h2>

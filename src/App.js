@@ -5,12 +5,10 @@ import { Provider } from 'react-redux';
 import { HashRouter as Router } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import store from './store';
-import IntroText from './IntroText';
 import StudyDirections from './StudyDirections';
 import Courses from './Courses';
 import Exams from './Exams';
@@ -26,36 +24,6 @@ const theme = createMuiTheme({
     }
   }
 });
-
-function Step1({ onNextStep }) {
-  return (
-    <React.Fragment>
-      <h2 className="Block-title">
-        Pirmais solis - izvēlies padziļinātos un specializētos kursus! 
-      </h2>
-
-      <IntroText />
-
-      <StudyDirections onNextStep={onNextStep} />
-    </React.Fragment>
-  )
-}
-
-function Step2({ onNextStep }) {
-  return (
-    <React.Fragment>
-      <Courses onNextStep={onNextStep} />
-    </React.Fragment>
-  )
-}
-
-function Step3({ onNextStep }) {
-  return (
-    <React.Fragment>
-      <Exams />
-    </React.Fragment>
-  )
-}
 
 function Content() {
   const match = useRouteMatch("/:step");
@@ -78,9 +46,9 @@ function Content() {
         </Step>
       </Stepper>
 
-      {activeStep === 0 && <Step1 onNextStep={() => { history.push("/1"); window.scrollTo(0, 0) }} />}
-      {activeStep === 1 && <Step2 onNextStep={() => { history.push("/2"); window.scrollTo(0, 0) }} />}
-      {activeStep === 2 && <Step3 />}
+      {activeStep === 0 && <StudyDirections onNextStep={() => { history.push("/1"); window.scrollTo(0, 0) }} />}
+      {activeStep === 1 && <Courses onNextStep={() => { history.push("/2"); window.scrollTo(0, 0) }} />}
+      {activeStep === 2 && <Exams />}
     </React.Fragment>
   )
 }
@@ -98,7 +66,6 @@ function App() {
               </header>
 
               <Content />
-
             </Container>
           </div>
         </ThemeProvider>

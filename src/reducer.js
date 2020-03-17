@@ -9,68 +9,73 @@ import _uniqBy from 'lodash/uniqBy';
 
 import data from './Courses.json';
 
-const resetExams = (state) => {
+const setupExamsData = (state) => {
   state.examsData = []
+
   const entries = _flatMap(_values(state.coursesData))
-  const allSelectedCourseNames = entries.map((e) => {
-    const selectedCourse = (e.courses[e.selectedCourseIndex] || {});
-    return selectedCourse.courseName;
-  });
+
   entries.forEach((e) => {
     const course = (e.courses[e.selectedCourseIndex] || {}); 
     if (!course.exam) return;
-    if (course.examExcludedBy && allSelectedCourseNames.indexOf(course.examExcludedBy) !== -1) return;
     const disabled = course.courseType !== "Padziļinātie kursi"
     const exam = { ...course, selected: disabled, disabled }
     state.examsData.push(exam);
   })
 }
-const initialState = {
-  // {
-  //   "Specializētie kursi": [
-  //     { selectedCourse: ..., courses: [..., ...] }
-  //   ]
-  // }
-  coursesData: {},
-  direction: null,
-  directionsData: {
-    "Padziļinātie kursi":  [{}, {}, {}, {}, {}],
-    "Specializētie kursi": [{}, {}, {}, {}, {}],
-  },
-  examsData: []
-};
-const entriesByCourseTypes = _entries(_groupBy(data, (row) => row.courseType))
-entriesByCourseTypes.forEach(([courseType, entries]) => {
-  initialState.coursesData[courseType] = [];
-  const entriesByGroup = _entries(_groupBy(entries, (row) => row.group))
-  entriesByGroup.forEach(([group, entries]) => {
-    _times(entries[0].repeat).forEach((i) => {
-      initialState.coursesData[courseType].push({
-        courseType,
-        group,
-        selectedCourseIndex: entries.length > 1 ? -1: 0,
-        courses: entries.map((e) => ({ ...e, disabled: false }))
+
+const toggleExam = (state, examIndex, selected) => {
+  const exams = state.examsData
+
+  // Max 2 exams can be selected
+  if (selected && exams.filter((e) => e.selected && !e.disabled).length > 1) return;
+
+  // Select the exam
+  exams[examIndex].selected = selected;
+
+  const allSelectedExamNames = exams
+    .filter((e) => e.selected)
+    .map((e) => e.courseName);
+
+  // Handle exclusions
+  exams.forEach((exam) => {
+    if (!exam.disabled) return;
+    const excluded = (exam.examExcludedBy && allSelectedExamNames.indexOf(exam.examExcludedBy) !== -1);
+    exam.selected = !excluded;
+  })
+}
+
+const setupCoursesData = (initialState, data) => {
+  const entriesByCourseTypes = _entries(_groupBy(data, (row) => row.courseType))
+  entriesByCourseTypes.forEach(([courseType, entries]) => {
+    initialState.coursesData[courseType] = [];
+    const entriesByGroup = _entries(_groupBy(entries, (row) => row.group))
+    entriesByGroup.forEach(([group, entries]) => {
+      _times(entries[0].repeat).forEach((i) => {
+        initialState.coursesData[courseType].push({
+          courseType,
+          group,
+          selectedCourseIndex: entries.length > 1 ? -1: 0,
+          courses: entries.map((e) => ({ ...e, disabled: false }))
+        })
       })
     })
+
+    if (courseType === 'Padziļinātie kursi' || courseType === 'Specializētie kursi') {
+      initialState.directionsData[courseType].forEach((e) => {
+        e.courseType = courseType;
+        e.group = courseType;
+        e.selectedCourseIndex = -1;
+        if (courseType === 'Specializētie kursi') {
+          // Converts "Psiholoģija (10. klase)" to "Psihiloģija", etc
+          const normalizedCourses = entries.map(e => ({ ...e, courseName: e.courseName.replace(/\s\(.+$/, '') }))
+          e.courses = _uniqBy(normalizedCourses, e => e.courseName);
+        } else {
+          e.courses = entries.map(e => ({ ...e, disabled: false }));
+        }
+      })
+    }
   })
-
-  if (courseType === 'Padziļinātie kursi' || courseType === 'Specializētie kursi') {
-    initialState.directionsData[courseType].forEach((e) => {
-      e.courseType = courseType;
-      e.group = courseType;
-      e.selectedCourseIndex = -1;
-      if (courseType === 'Specializētie kursi') {
-        // Converts "Psiholoģija (10. klase)" to "Psihiloģija", etc
-        const normalizedCourses = entries.map(e => ({ ...e, courseName: e.courseName.replace(/\s\(.+$/, '') }))
-        e.courses = _uniqBy(normalizedCourses, e => e.courseName);
-      } else {
-        e.courses = entries.map(e => ({ ...e, disabled: false }));
-      }
-    })
-  }
-})
-
-resetExams(initialState);
+}
 
 const toggleEntries = (entries) => {
   // reset disabled flag
@@ -132,6 +137,24 @@ const toggleEntries = (entries) => {
   })
 }
 
+const initialState = {
+  // {
+  //   "Specializētie kursi": [
+  //     { selectedCourse: ..., courses: [..., ...] }
+  //   ]
+  // }
+  coursesData: {},
+  direction: null,
+  directionsData: {
+    "Padziļinātie kursi":  [{}, {}, {}, {}, {}],
+    "Specializētie kursi": [{}, {}, {}, {}, {}],
+  },
+  examsData: []
+};
+
+setupCoursesData(initialState, data);
+setupExamsData(initialState);
+
 const reducer = createReducer(initialState, {
   SELECT_DIRECTION: (state, { direction }) => {
     state.direction = direction;
@@ -165,7 +188,10 @@ const reducer = createReducer(initialState, {
     // get all entries
     const entries = _flatMap(_values(state.coursesData))
     toggleEntries(entries)
-    resetExams(state)
+    setupExamsData(state)
+  },
+  TOGGLE_EXAM: (state, { examIndex, selected}) => {
+    toggleExam(state, examIndex, selected);
   }
 })
 
