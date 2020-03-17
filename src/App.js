@@ -1,10 +1,13 @@
 import React from 'react';
 import logo from './logo.png';
+import sponsor from './sponsor.svg';
 import './App.css';
 import { Provider } from 'react-redux';
 import { HashRouter as Router } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -72,13 +75,22 @@ function App() {
         <ThemeProvider theme={theme}>
           <div className="App">
             <Container maxWidth="md">
-
               <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
               </header>
-
               <Content />
             </Container>
+            <Box bgcolor="grey.100" color="grey.600" py={5}>
+              <Box display="flex" alignItems="center" justifyContent="center">
+                <Box pr={2}>Rīku veidoja</Box>
+                <Link href="https://www.makit.lv/" target="_blank">
+                  <img alt="MAK IT" src={sponsor} style={{ display: 'block', height: '20px' }} />
+                </Link>
+                <Box pl={2}>
+                  un izejas kods pieejams <Link href="https://github.com/mak-it/study-lego">GitHub</Link>.
+                </Box>
+              </Box>
+            </Box>
           </div>
         </ThemeProvider>
       </Router>

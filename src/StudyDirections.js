@@ -94,6 +94,7 @@ function StudyDirections({ onNextStep }) {
 
   return (
     <React.Fragment>
+      <h1 className="Block-title">Izveido savu vidusskolu!</h1>
       <h2 className="Block-title">
         Pirmais solis - izvēlies padziļinātos un specializētos kursus! 
       </h2>
