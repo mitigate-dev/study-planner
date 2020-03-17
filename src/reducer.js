@@ -16,6 +16,7 @@ const initialState = {
   //   ]
   // }
   coursesData: {},
+  direction: null,
   directionsData: {
     "Padziļinātie kursi":  [{}, {}, {}, {}, {}],
     "Specializētie kursi": [{}, {}, {}, {}, {}],
@@ -113,11 +114,30 @@ const toggleEntries = (entries) => {
 }
 
 const reducer = createReducer(initialState, {
+  SELECT_DIRECTION: (state, { direction }) => {
+    state.direction = direction;
+  },
   SELECT_DIRECTION_COURSE: (state, { courseType, entryIndex, selectedCourseIndex }) => {
     // set selectedCourse
     state.directionsData[courseType][entryIndex].selectedCourseIndex = selectedCourseIndex
     // get all entries
     const entries = _flatMap(_values(state.directionsData))
+    toggleEntries(entries)
+  },
+  // Select TOP 3 courses selected in step 1 and transfer them to step 2
+  CONFIRM_DIRECTION_COURSES: (state) => {
+    const courseType = "Padziļinātie kursi";
+    state.directionsData[courseType].slice(0, 3).forEach((directionEntry, entryIndex) => {
+      const selectedDirectionCourse = directionEntry.courses[directionEntry.selectedCourseIndex] || {};
+      const entry = state.coursesData[courseType][entryIndex];
+      entry.courses.forEach((course, courseIndex) => {
+        if (course.courseName === selectedDirectionCourse.courseName) {
+          entry.selectedCourseIndex = courseIndex;
+        }
+      })
+    })
+    // get all entries
+    const entries = _flatMap(_values(state.coursesData))
     toggleEntries(entries)
   },
   SELECT_COURSE: (state, { courseType, entryIndex, selectedCourseIndex }) => {

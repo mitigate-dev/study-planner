@@ -6,8 +6,6 @@ import { HashRouter as Router } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -37,13 +35,7 @@ function Step1({ onNextStep }) {
 
       <IntroText />
 
-      <StudyDirections />
-
-      <Box className="Block-call-to-action">
-        <Button variant="contained" color="primary" onClick={onNextStep}>
-          Izvēli esmu veicis! Doties tālāk!
-        </Button>
-      </Box>
+      <StudyDirections onNextStep={onNextStep} />
     </React.Fragment>
   )
 }

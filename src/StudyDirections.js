@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import rows from './StudyDirectionsData';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -64,7 +66,7 @@ function StudyDirectionCourses({ entries, title }) {
         </TableHead>
         <TableBody>
           {entries.map((entry, entryIndex) =>
-            <StudyDirectionCoursesEntryRow entryIndex={entryIndex} entry={entry} />
+            <StudyDirectionCoursesEntryRow key={entryIndex} entryIndex={entryIndex} entry={entry} />
           )}
         </TableBody>
       </Table>
@@ -73,9 +75,19 @@ function StudyDirectionCourses({ entries, title }) {
 }
 
 
-function StudyDirections() {
+function StudyDirections({ onNextStep }) {
+  const dispatch = useDispatch();
   const directionsData = useSelector(state => state.directionsData)
-  const [selectedDirection, setSelectedDirection] = useState(undefined);
+  const direction = useSelector(state => state.direction)
+
+  const selectDirection = (direction) => {
+    dispatch({ type: 'SELECT_DIRECTION', direction })
+  }
+
+  const onNextStepWithConfirm = () => {
+    dispatch({ type: 'CONFIRM_DIRECTION_COURSES' })
+    onNextStep()
+  }
 
   return (
     <React.Fragment>
@@ -103,9 +115,9 @@ function StudyDirections() {
         style={{ width: '100%', marginBottom: '1rem' }}
         displayEmpty
         variant="outlined"
-        value={selectedDirection || ""}
+        value={direction || ""}
         renderValue={(row) => (row ? row.study_direction : <em>Izvēlies virzienu ...</em>)}
-        onChange={(e) => setSelectedDirection(e.target.value)}
+        onChange={(e) => selectDirection(e.target.value)}
       >
         {rows.map(row => (
           <MenuItem key={row.nr} value={row}>
@@ -114,13 +126,13 @@ function StudyDirections() {
         ))}
       </Select>
 
-      {selectedDirection &&
+      {direction &&
         <Typography variant="body1" paragraph>
-          {selectedDirection.recomendations}
+          {direction.recomendations}
         </Typography>
       }
 
-      {selectedDirection &&
+      {direction &&
         <Grid container spacing={3}>
           <Grid item sm={6} xs={12}>
             <StudyDirectionCourses entries={directionsData['Padziļinātie kursi']} title="Mana padzīļināto kursu ivēlē (prioritārā secībā)" />
@@ -130,6 +142,12 @@ function StudyDirections() {
           </Grid>
         </Grid>
       }
+
+      <Box className="Block-call-to-action">
+        <Button variant="contained" color="primary" onClick={onNextStepWithConfirm}>
+          Izvēli esmu veicis! Doties tālāk!
+        </Button>
+      </Box>
     </React.Fragment>
   );
 }
