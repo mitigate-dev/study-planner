@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -20,8 +20,6 @@ import _entries from 'lodash/entries';
 import _sumBy from 'lodash/sumBy';
 import _flatMap from 'lodash/flatMap';
 import _values from 'lodash/values';
-import { PDFDownloadLink } from '@react-pdf/renderer';
-import CoursesPDF from './CoursesPDF';
 
 const useStyles = makeStyles({
   headerRowCell: {
@@ -170,37 +168,29 @@ function CoursesTable() {
   )
 }
 
-function CoursesButtons({ onNextStep }) {
+function CoursesButtons({ onPrevStep, onNextStep }) {
   const rows = useSelector(state => state.coursesData)
-  const [downloadLinkReady, setDownloadLinkReady] = useState(false);
-
-  const document = <CoursesPDF rows={rows} />;
+  const entries = _flatMap(_values(rows))
+  const completed = entries.filter(e => e.selectedCourseIndex >= 0).length === entries.length;
 
   return (
     <Box className="Block-call-to-action">
-      {downloadLinkReady ? null : 'Lūdzu uzgaidiet...'}
-      <PDFDownloadLink document={document} fileName="plans.pdf">
-        {({ blob, url, loading, error }) => {
-          if (loading) return;
-          setTimeout(() => setDownloadLinkReady(true), 1)
-          return (
-            <Button variant="contained" color="primary">
-              Atvērt PDF formātā, lai drukātu vai saglabātu
-            </Button>
-          )
-        }}
-      </PDFDownloadLink>
-      &nbsp;
-      {downloadLinkReady &&
-        <Button variant="contained" color="primary" onClick={onNextStep}>
-          Vēlos uzzināt vairāk
-        </Button>
-      }
+      <Button variant="outlined" color="primary" onClick={onPrevStep}>
+        Atgriezties uz 1. soli
+      </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={onNextStep}
+        disabled={!completed}
+      >
+        Savu plānu esmu apskatījis, vēlos uzzināt vairāk!
+      </Button>
     </Box>
   )
 }
 
-export default function Courses({ onNextStep }) {
+export default function Courses({ onPrevStep, onNextStep }) {
   return (
     <React.Fragment>
       <h2 className="Block-title">
@@ -215,7 +205,7 @@ export default function Courses({ onNextStep }) {
       </Typography>
 
       <CoursesTable />
-      <CoursesButtons onNextStep={onNextStep} />
+      <CoursesButtons onPrevStep={onPrevStep} onNextStep={onNextStep} />
     </React.Fragment>
   );
 }

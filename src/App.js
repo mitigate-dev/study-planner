@@ -27,14 +27,14 @@ const theme = createMuiTheme({
 
 function Content() {
   const match = useRouteMatch("/:step");
-  const activeStep = match ? parseInt(match.params.step, 10) : 0;
+  const activeStep = match ? parseInt(match.params.step, 10) : 1;
   const history = useHistory();
 
   return (
     <React.Fragment>
       {activeStep === 0 && <h1 className="Block-title">Izveido savu vidusskolu!</h1>}
 
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper activeStep={activeStep - 1} alternativeLabel>
         <Step key="1">
           <StepLabel>Izvēlies padziļinātos un specializētos kursus</StepLabel>
         </Step>
@@ -46,9 +46,21 @@ function Content() {
         </Step>
       </Stepper>
 
-      {activeStep === 0 && <StudyDirections onNextStep={() => { history.push("/1"); window.scrollTo(0, 0) }} />}
-      {activeStep === 1 && <Courses onNextStep={() => { history.push("/2"); window.scrollTo(0, 0) }} />}
-      {activeStep === 2 && <Exams />}
+      {activeStep === 1 &&
+        <StudyDirections
+          onNextStep={() => { history.push("/2"); window.scrollTo(0, 0) }}
+        />
+      }
+      {activeStep === 2 &&
+        <Courses
+          onPrevStep={() => { history.push("/1"); window.scrollTo(0, 0) }}
+          onNextStep={() => { history.push("/3"); window.scrollTo(0, 0) }}
+        />
+      }
+      {activeStep === 3 &&
+        <Exams
+          onPrevStep={() => { history.push("/2"); window.scrollTo(0, 0) }} />
+      }
     </React.Fragment>
   )
 }

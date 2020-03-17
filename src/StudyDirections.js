@@ -75,11 +75,13 @@ function StudyDirectionCourses({ entries, title }) {
   )
 }
 
-
 function StudyDirections({ onNextStep }) {
   const dispatch = useDispatch();
   const directionsData = useSelector(state => state.directionsData)
   const direction = useSelector(state => state.direction)
+  const completed = direction
+    && directionsData['Padziļinātie kursi'].filter(e => e.selectedCourseIndex >= 0).length === 5
+    && directionsData['Specializētie kursi'].filter(e => e.selectedCourseIndex >= 0).length === 5
 
   const selectDirection = (direction) => {
     dispatch({ type: 'SELECT_DIRECTION', direction })
@@ -148,9 +150,15 @@ function StudyDirections({ onNextStep }) {
       </Select>
 
       {direction &&
-        <Typography variant="body1" paragraph>
-          {direction.recomendations}
-        </Typography>
+        <Box my={2}>
+          <Paper>
+            <Box bgcolor="grey.200" p={3}>
+              <Typography variant="body1">
+                {direction.recomendations}
+              </Typography>
+            </Box>
+          </Paper>
+        </Box>
       }
 
       {direction &&
@@ -165,7 +173,12 @@ function StudyDirections({ onNextStep }) {
       }
 
       <Box className="Block-call-to-action">
-        <Button variant="contained" color="primary" onClick={onNextStepWithConfirm}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={onNextStepWithConfirm}
+          disabled={!completed}
+        >
           Izvēli esmu veicis! Doties tālāk!
         </Button>
       </Box>

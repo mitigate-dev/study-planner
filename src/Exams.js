@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
@@ -8,6 +10,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import CoursesPDF from './CoursesPDF';
 
 function ExamsRow({ examIndex, exam }) {
   const dispatch = useDispatch();
@@ -53,7 +57,32 @@ function ExamsTable({ exams }) {
   )
 }
 
-export default function Exams() {
+function ExamsButtons({ onPrevStep }) {
+  const rows = useSelector(state => state.coursesData)
+
+  const document = <CoursesPDF rows={rows} />;
+
+  return (
+    <Box className="Block-call-to-action">
+      <Button variant="outlined" color="primary" onClick={onPrevStep}>
+        Atgriezties uz 2. soli
+      </Button>
+      &nbsp;
+      <PDFDownloadLink document={document} fileName="plans.pdf">
+        {({ blob, url, loading, error }) => {
+          if (loading) return 'Lūdzu uzgaidiet...';
+          return (
+            <Button variant="contained" color="primary">
+              Atvērt PDF formātā, lai drukātu vai saglabātu
+            </Button>
+          )
+        }}
+      </PDFDownloadLink>
+    </Box>
+  )
+}
+
+export default function Exams({ onPrevStep }) {
   const exams = useSelector(state => state.examsData);
   const advancedExams = exams.filter(e => e.courseType === "Padziļinātie kursi")
   const basicExams    = exams.filter(e => e.courseType !== "Padziļinātie kursi")
@@ -79,6 +108,8 @@ export default function Exams() {
       </h3>
 
       <ExamsTable exams={basicExams} />
+
+      <ExamsButtons onPrevStep={onPrevStep} />
     </React.Fragment>
   );
 }
