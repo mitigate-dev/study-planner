@@ -208,7 +208,10 @@ export default function Courses({ onNextStep }) {
       </h2>
 
       <Typography variant="body1" paragraph>
-        Individuālais mācību plāns ir teju gatavs! Zilajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, izdrukā vai saglabā PDF failā.
+        Individuālais mācību plāns ir teju gatavs!
+        Zilajos lauciņos vēl jāveic daža kursu izvēles.
+        Apskati savu individuālo plānu.
+        Ja vēlies, izdrukā vai saglabā PDF failā.
       </Typography>
 
       <CoursesTable />

@@ -1,12 +1,81 @@
 import React, { useState } from 'react';
 import rows from './StudyDirectionsData';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import { useSelector, useDispatch } from 'react-redux';
+
+function StudyDirectionCoursesEntryRow({ entryIndex, entry }) {
+  const dispatch = useDispatch();
+
+  const { courseType, selectedCourseIndex, courses } = entry;
+
+  const handleChange = (event) => {
+    const selectedCourseIndex = event.target.value;
+    dispatch({ type: 'SELECT_DIRECTION_COURSE', courseType, entryIndex, selectedCourseIndex })
+  }
+
+  return (
+    <TableRow>
+      <TableCell style={{ width: '5%' }}>#{entryIndex + 1}</TableCell>
+      <TableCell>
+        <Select
+          className="Course-dropdown"
+          onChange={handleChange}
+          value={selectedCourseIndex !== -1 ? selectedCourseIndex : ''}
+          autoWidth={true}
+          disableUnderline
+          displayEmpty
+          renderValue={(i) => (
+            (courses[i] && courses[i].courseName) ||
+            <em>Izvēlies kursu ...</em>
+          )}
+        >
+          {courses.map((course, i) =>
+            <MenuItem
+              key={course.courseName}
+              value={i}
+              disabled={course.disabled}
+            >
+              {course.courseName}
+            </MenuItem>
+          )}
+        </Select>
+      </TableCell>
+    </TableRow>
+  )
+}
+
+function StudyDirectionCourses({ entries, title }) {
+  return (
+    <Paper>
+      <Table size="small" stickyHeader aria-label="Courses table">
+        <TableHead>
+          <TableRow>
+            <TableCell colSpan={2}>{title}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {entries.map((entry, entryIndex) =>
+            <StudyDirectionCoursesEntryRow entryIndex={entryIndex} entry={entry} />
+          )}
+        </TableBody>
+      </Table>
+    </Paper>
+  )
+}
+
 
 function StudyDirections() {
+  const directionsData = useSelector(state => state.directionsData)
   const [selectedDirection, setSelectedDirection] = useState(undefined);
-  console.log({selectedDirection});
 
   return (
     <React.Fragment>
@@ -49,6 +118,17 @@ function StudyDirections() {
         <Typography variant="body1" paragraph>
           {selectedDirection.recomendations}
         </Typography>
+      }
+
+      {selectedDirection &&
+        <Grid container spacing={3}>
+          <Grid item sm={6} xs={12}>
+            <StudyDirectionCourses entries={directionsData['Padziļinātie kursi']} title="Mana padzīļināto kursu ivēlē (prioritārā secībā)" />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+            <StudyDirectionCourses entries={directionsData['Specializētie kursi']} title="Mana specializēto kursu ivēlē (prioritārā secībā)" />
+          </Grid>
+        </Grid>
       }
     </React.Fragment>
   );
