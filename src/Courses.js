@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
@@ -207,9 +207,9 @@ export default function Courses({ onNextStep }) {
         Otrais solis - iepazīsti individuālo plānu!
       </h2>
 
-      <p>
+      <Typography variant="body1" paragraph>
         Individuālais mācību plāns ir teju gatavs! Zilajos lauciņos vēl jāveic daža kursu izvēles. Apskati savu individuālo plānu. Ja vēlies, izdrukā vai saglabā PDF failā.
-      </p>
+      </Typography>
 
       <CoursesTable />
       <CoursesButtons onNextStep={onNextStep} />

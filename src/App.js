@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { HashRouter as Router } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Stepper from '@material-ui/core/Stepper';
@@ -62,9 +63,9 @@ function Step3({ onNextStep }) {
         Trešais solis -  uzzini par mācībām un eksāmeniem vidusskolā!
       </h2>
 
-      <p>
+      <Typography variant="body1" paragraph>
         Šajā sadaļā būs informatīvs teksts par mācībām un eksāmeniem vidusskolā. Šajā sadaļā svarīgi ievietot Valsts pārbaudes darbu plānotāju:
-      </p>
+      </Typography>
     </React.Fragment>
   )
 }
@@ -76,6 +77,8 @@ function Content() {
 
   return (
     <React.Fragment>
+      {activeStep === 0 && <h1 className="Block-title">Izveido savu vidusskolu!</h1>}
+
       <Stepper activeStep={activeStep} alternativeLabel>
         <Step key="1">
           <StepLabel>Izvēlies padziļinātos un specializētos kursus</StepLabel>
@@ -106,10 +109,6 @@ function App() {
               <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
               </header>
-
-              <h1 className="Block-title">
-                Izveido savu vidusskolu!
-              </h1>
 
               <Content />
 

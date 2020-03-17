@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import rows from './StudyDirectionsData';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 function StudyDirections() {
+  const [selectedDirection, setSelectedDirection] = useState(undefined);
+  console.log({selectedDirection});
+
   return (
     <React.Fragment>
-      <h3 className="Block-title">
+      <h2 className="Block-title">
         Studiju virzieni un ieteikumi padziļināto kursu izvēlei
-      </h3>
+      </h2>
 
       <ul className="Default-list">
         <li>
@@ -30,26 +29,27 @@ function StudyDirections() {
         </li>
       </ul>
 
-      <TableContainer component={Paper}>
-        <Table size="small" aria-label="Study directions table">
-          <TableHead>
-            <TableRow>
-              <TableCell>N.p.k</TableCell>
-              <TableCell>Studiju virziens</TableCell>
-              <TableCell>Ieteikumi padziļināto un specializēto kursu izvēlei</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.nr}>
-                <TableCell>{row.nr}</TableCell>
-                <TableCell>{row.study_direction}</TableCell>
-                <TableCell>{row.recomendations}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>      
+      <Select
+        autoWidth={true}
+        style={{ width: '100%', marginBottom: '1rem' }}
+        displayEmpty
+        variant="outlined"
+        value={selectedDirection || ""}
+        renderValue={(row) => (row ? row.study_direction : <em>Izvēlies virzienu ...</em>)}
+        onChange={(e) => setSelectedDirection(e.target.value)}
+      >
+        {rows.map(row => (
+          <MenuItem key={row.nr} value={row}>
+            {row.study_direction}
+          </MenuItem>
+        ))}
+      </Select>
+
+      {selectedDirection &&
+        <Typography variant="body1" paragraph>
+          {selectedDirection.recomendations}
+        </Typography>
+      }
     </React.Fragment>
   );
 }
