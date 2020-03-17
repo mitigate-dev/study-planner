@@ -9,6 +9,22 @@ import _uniqBy from 'lodash/uniqBy';
 
 import data from './Courses.json';
 
+const resetExams = (state) => {
+  state.examsData = []
+  const entries = _flatMap(_values(state.coursesData))
+  const allSelectedCourseNames = entries.map((e) => {
+    const selectedCourse = (e.courses[e.selectedCourseIndex] || {});
+    return selectedCourse.courseName;
+  });
+  entries.forEach((e) => {
+    const course = (e.courses[e.selectedCourseIndex] || {}); 
+    if (!course.exam) return;
+    if (course.examExcludedBy && allSelectedCourseNames.indexOf(course.examExcludedBy) !== -1) return;
+    const disabled = course.courseType !== "Padziļinātie kursi"
+    const exam = { ...course, selected: disabled, disabled }
+    state.examsData.push(exam);
+  })
+}
 const initialState = {
   // {
   //   "Specializētie kursi": [
@@ -20,7 +36,8 @@ const initialState = {
   directionsData: {
     "Padziļinātie kursi":  [{}, {}, {}, {}, {}],
     "Specializētie kursi": [{}, {}, {}, {}, {}],
-  }
+  },
+  examsData: []
 };
 const entriesByCourseTypes = _entries(_groupBy(data, (row) => row.courseType))
 entriesByCourseTypes.forEach(([courseType, entries]) => {
@@ -52,6 +69,8 @@ entriesByCourseTypes.forEach(([courseType, entries]) => {
     })
   }
 })
+
+resetExams(initialState);
 
 const toggleEntries = (entries) => {
   // reset disabled flag
@@ -146,6 +165,7 @@ const reducer = createReducer(initialState, {
     // get all entries
     const entries = _flatMap(_values(state.coursesData))
     toggleEntries(entries)
+    resetExams(state)
   }
 })
 

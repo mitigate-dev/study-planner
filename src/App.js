@@ -13,6 +13,7 @@ import store from './store';
 import IntroText from './IntroText';
 import StudyDirections from './StudyDirections';
 import Courses from './Courses';
+import Exams from './Exams';
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 const theme = createMuiTheme({
@@ -51,13 +52,7 @@ function Step2({ onNextStep }) {
 function Step3({ onNextStep }) {
   return (
     <React.Fragment>
-      <h2 className="Block-title">
-        Trešais solis -  uzzini par mācībām un eksāmeniem vidusskolā!
-      </h2>
-
-      <Typography variant="body1" paragraph>
-        Šajā sadaļā būs informatīvs teksts par mācībām un eksāmeniem vidusskolā. Šajā sadaļā svarīgi ievietot Valsts pārbaudes darbu plānotāju:
-      </Typography>
+      <Exams />
     </React.Fragment>
   )
 }

@@ -8,7 +8,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -19,7 +21,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -30,7 +34,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -41,7 +47,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -52,7 +60,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -63,7 +73,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -74,7 +86,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -85,7 +99,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "DP",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -96,7 +112,9 @@
     "group": "A",
     "repeat": 3,
     "uniqBy": "DP",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Padziļinātie kursi",
@@ -107,7 +125,9 @@
     "group": "X",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -118,7 +138,9 @@
     "group": "B",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": "Latviešu valoda un literatūra II"
   },
   {
     "courseType": "Pamatkursi",
@@ -129,7 +151,9 @@
     "group": "C",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": "Angļu valoda II"
   },
   {
     "courseType": "Pamatkursi",
@@ -140,7 +164,9 @@
     "group": "D",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -151,7 +177,9 @@
     "group": "D",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -162,7 +190,9 @@
     "group": "E",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -173,7 +203,9 @@
     "group": "F",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -184,7 +216,9 @@
     "group": "G",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -195,7 +229,9 @@
     "group": "H",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -206,7 +242,9 @@
     "group": "I",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -217,7 +255,9 @@
     "group": "J",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -228,7 +268,9 @@
     "group": "K",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": "Matemātika II"
+    "requiredBy": "Matemātika II",
+    "exam": "TRUE",
+    "examExcludedBy": "Matemātika II"
   },
   {
     "courseType": "Pamatkursi",
@@ -239,7 +281,9 @@
     "group": "K",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "TRUE",
+    "examExcludedBy": "Matemātika II"
   },
   {
     "courseType": "Pamatkursi",
@@ -250,7 +294,9 @@
     "group": "L",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -261,7 +307,9 @@
     "group": "L",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": "Dizains un tehnoloģijas II"
+    "requiredBy": "Dizains un tehnoloģijas II",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -272,7 +320,9 @@
     "group": "L",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": "Programmēšana II"
+    "requiredBy": "Programmēšana II",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
@@ -283,7 +333,9 @@
     "group": "O",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -294,7 +346,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -305,7 +359,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "FL",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -316,7 +372,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "FL",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -327,7 +385,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "FL",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -338,7 +398,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "UP",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -349,7 +411,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "PV",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -360,7 +424,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "PV",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -371,7 +437,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "PV",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -382,7 +450,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "PS",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -393,7 +463,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "PS",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -404,7 +476,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "PS",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Specializētie kursi",
@@ -415,7 +489,9 @@
     "group": "P",
     "repeat": 3,
     "uniqBy": "CB",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -426,7 +502,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -437,7 +515,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -448,7 +528,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -459,7 +541,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "FL",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -470,7 +554,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "FL",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -481,7 +567,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "FL",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -492,7 +580,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "UP",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -503,7 +593,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "PV",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -514,7 +606,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "PV",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -525,7 +619,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "PV",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -536,7 +632,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "PS",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -547,7 +645,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "PS",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -558,7 +658,9 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "PS",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Fakultatīvie kursi",
@@ -569,6 +671,8 @@
     "group": "Q",
     "repeat": 1,
     "uniqBy": "CB",
-    "requiredBy": ""
+    "requiredBy": "",
+    "exam": "",
+    "examExcludedBy": ""
   }
 ]
