@@ -80,13 +80,17 @@ function App() {
               </header>
               <Content />
             </Container>
-            <Box bgcolor="grey.100" color="grey.600" py={5}>
-              <Box display="flex" alignItems="center" justifyContent="center">
-                <Box pr={2}>Rīku veidoja</Box>
-                <Link href="https://www.makit.lv/" target="_blank">
-                  <img alt="MAK IT" src={sponsor} style={{ display: 'block', height: '20px' }} />
-                </Link>
-                <Box pl={2}>
+            <Box bgcolor="grey.100" color="grey.600" py={5} style={{ lineHeight: 1.0 }}>
+              <Box display="flex" alignItems="center" justifyContent="center" flexWrap="wrap">
+                <Box m={0.5}>
+                  Rīku veidoja
+                </Box>
+                <Box m={0.5}>
+                  <Link href="https://www.makit.lv/" target="_blank">
+                    <img alt="MAK IT" src={sponsor} style={{ display: 'block', height: '20px' }} />
+                  </Link>
+                </Box>
+                <Box m={0.5}>
                   un izejas kods pieejams <Link href="https://github.com/mak-it/study-planner">GitHub</Link>.
                 </Box>
               </Box>
