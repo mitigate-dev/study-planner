@@ -1,4 +1,4 @@
-# Study Contstructor
+# Study Planner
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -31,3 +31,9 @@ This will deploy the app to [ZEIT Now](https://create-react-app.dev/docs/deploym
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Convert csv to json
+
+```
+jq -R -s -f csv2json.jq src/Courses.csv > src/Courses.json
+```
