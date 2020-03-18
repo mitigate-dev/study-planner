@@ -171,7 +171,13 @@ function CoursesTable() {
 function CoursesButtons({ onPrevStep, onNextStep }) {
   const rows = useSelector(state => state.coursesData)
   const entries = _flatMap(_values(rows))
-  const completed = entries.filter(e => e.selectedCourseIndex >= 0).length === entries.length;
+  const selectedCourses = entries.map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
+  const completed = (
+    entries.filter(e => e.selectedCourseIndex >= 0).length === entries.length &&
+    _sumBy(selectedCourses, sc => sc.points10) <= 36 &&
+    _sumBy(selectedCourses, sc => sc.points11) <= 36 &&
+    _sumBy(selectedCourses, sc => sc.points12) <= 36
+  );
 
   return (
     <Box className="Block-call-to-action">
