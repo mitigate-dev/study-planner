@@ -35,7 +35,7 @@ function Content() {
 
   return (
     <React.Fragment>
-      {activeStep === 0 && <h1 className="Block-title">Izveido savu vidusskolu!</h1>}
+      {activeStep === 1 && <h1 className="Block-title">Izveido savu vidusskolu!</h1>}
 
       <Stepper activeStep={activeStep - 1} alternativeLabel>
         <Step key="1">
