@@ -87,7 +87,7 @@ function App() {
                   <img alt="MAK IT" src={sponsor} style={{ display: 'block', height: '20px' }} />
                 </Link>
                 <Box pl={2}>
-                  un izejas kods pieejams <Link href="https://github.com/mak-it/study-lego">GitHub</Link>.
+                  un izejas kods pieejams <Link href="https://github.com/mak-it/study-planner">GitHub</Link>.
                 </Box>
               </Box>
             </Box>
