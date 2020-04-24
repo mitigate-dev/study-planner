@@ -61,14 +61,13 @@ function ExamsButtons({ onPrevStep }) {
   const coursesData  = useSelector(state => state.coursesData)
   const examsData    = useSelector(state => state.examsData);
 
+  const completed = examsData.filter(e => e.selected && e.courseType === "Padziļinātie kursi").length === 2
+
   const document = <CoursesPDF coursesData={coursesData} examsData={examsData} />;
 
-  return (
-    <Box className="Block-call-to-action">
-      <Button variant="outlined" color="primary" onClick={onPrevStep}>
-        Atgriezties uz 2. soli
-      </Button>
-      &nbsp;
+  let link = null;
+  if (completed) {
+    link = (
       <PDFDownloadLink document={document} fileName="plans.pdf" style={{ textDecoration: 'none' }}>
         {({ blob, url, loading, error }) => {
           if (loading) return 'Lūdzu uzgaidiet...';
@@ -79,6 +78,24 @@ function ExamsButtons({ onPrevStep }) {
           )
         }}
       </PDFDownloadLink>
+    )
+  } else {
+    const showAlert = () =>
+      window.alert("Nepieciešams izvēlēties divus valsts pārbaudes darbs padziļinātajā kursā.")
+    link = (
+      <Button variant="outlined" color="primary" onClick={showAlert}>
+        Atvērt PDF formātā, lai drukātu vai saglabātu
+      </Button>
+    )
+  }
+
+  return (
+    <Box className="Block-call-to-action">
+      <Button variant="outlined" color="primary" onClick={onPrevStep}>
+        Atgriezties uz 2. soli
+      </Button>
+      &nbsp;
+      {link}
     </Box>
   )
 }
