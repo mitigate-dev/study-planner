@@ -37,17 +37,17 @@ function StudyDirectionCoursesEntryRow({ entryIndex, entry }) {
           disableUnderline
           displayEmpty
           renderValue={(i) => (
-            (courses[i] && courses[i].courseName) ||
+            (courses[i] && courses[i].directionName) ||
             <em>Izvēlies kursu ...</em>
           )}
         >
           {courses.map((course, i) =>
             <MenuItem
-              key={course.courseName}
+              key={course.directionName}
               value={i}
               disabled={course.disabled}
             >
-              {course.courseName}
+              {course.directionName}
             </MenuItem>
           )}
         </Select>
@@ -80,16 +80,21 @@ function StudyDirections({ onNextStep }) {
   const directionsData = useSelector(state => state.directionsData)
   const direction = useSelector(state => state.direction)
   const completed = direction
-    && directionsData['Padziļinātie kursi'].filter(e => e.selectedCourseIndex >= 0).length === 5
-    && directionsData['Specializētie kursi'].filter(e => e.selectedCourseIndex >= 0).length === 5
+    && directionsData['Padziļinātie kursi'].filter(e => e.selectedCourseIndex >= 0).length >= 4;
 
   const selectDirection = (direction) => {
     dispatch({ type: 'SELECT_DIRECTION', direction })
   }
 
-  const onNextStepWithConfirm = () => {
-    dispatch({ type: 'CONFIRM_DIRECTION_COURSES' })
-    onNextStep()
+  const onNextStepWithCompletionCheckAndConfirm = () => {
+    if (completed) {
+      dispatch({ type: 'CONFIRM_DIRECTION_COURSES' })
+      onNextStep()
+    } else {
+      window.alert(
+        "Lai dotos uz otro soli, jābūt norādītiem vismaz četriem padziļinātajiem kursiem."
+      )
+    }
   }
 
   return (
@@ -111,7 +116,10 @@ function StudyDirections({ onNextStep }) {
         Lai padziļinātos kursus varētu izvēlēties pārdomāti, esam norādījuši, kurus padziļinātos kursus ieteicams izvēlēties sekmīgām studijām dažādos studiju virzienos. Aicinām iedvesmoties no piemēriem! <b>Aicinām izvēlēties un sakārtot prioritātā secībā piecus interesantākos un nākotnei noderīgākos padziļinātos kursus, kurus vēlaties mācīties!</b>
       </Typography>
       <Typography variant="body1" paragraph>
-        Līdztekus padziļinātajiem kursiem skolēnam ir iespēja izvēlēties <b>specializētos kursus</b>. Specializēto kursu izvēle un apguve ir brīvprātīga! Ogres 1. vidusskola piedāvās septiņus specializētos kursus - Spāņu valoda, Franču valoda, Filozofija, Uzņēmējdarbības pamati, Projektu vadība, Psiholoģija, Cilvēka bioloģija.  
+        Līdztekus padziļinātajiem kursiem skolēnam ir iespēja izvēlēties <b>specializētos kursus vai fakultatīvos kursus</b>.
+        Specializēto un fakultatīvo kursu izvēle un apguve ir brīvprātīga! Ogres 1. vidusskola piedāvās septiņus
+        specializētos vai fakultatīvos kursus - Spāņu valoda, Franču valoda, Filozofija, Uzņēmējdarbības pamati,
+        Projektu vadība, Psiholoģija, Cilvēka bioloģija.
       </Typography>
 
       <h2 className="Block-title">
@@ -164,20 +172,19 @@ function StudyDirections({ onNextStep }) {
       {direction &&
         <Grid container spacing={3}>
           <Grid item sm={6} xs={12}>
-            <StudyDirectionCourses entries={directionsData['Padziļinātie kursi']} title="Mana padzīļināto kursu ivēlē (prioritārā secībā)" />
+            <StudyDirectionCourses entries={directionsData['Padziļinātie kursi']} title="Mana padzīļināto kursu izvēlē (prioritārā secībā)" />
           </Grid>
           <Grid item sm={6} xs={12}>
-            <StudyDirectionCourses entries={directionsData['Specializētie kursi']} title="Mana specializēto kursu ivēlē (prioritārā secībā)" />
+            <StudyDirectionCourses entries={directionsData['Specializētie kursi']} title="Mana specializēto kursu izvēlē (prioritārā secībā)" />
           </Grid>
         </Grid>
       }
 
       <Box className="Block-call-to-action">
         <Button
-          variant="contained"
+          variant={completed? "contained" : "outlined"}
           color="primary"
-          onClick={onNextStepWithConfirm}
-          disabled={!completed}
+          onClick={onNextStepWithCompletionCheckAndConfirm}
         >
           Izvēli esmu veicis! Doties tālāk!
         </Button>

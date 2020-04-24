@@ -77,9 +77,9 @@ const nullCourse = {
 
 export default function CoursesPDF({ rows }) {
   const selectedCourses = _flatMap(_values(rows)).map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
-  const points10 = _sumBy(selectedCourses, (sc) => sc.points10)
-  const points11 = _sumBy(selectedCourses, (sc) => sc.points11)
-  const points12 = _sumBy(selectedCourses, (sc) => sc.points12)
+  const points10 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points10 : 0)
+  const points11 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points11 : 0)
+  const points12 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points12 : 0)
   const totalPoints = points10 + points11 + points12
 
   return (

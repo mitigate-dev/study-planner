@@ -5,7 +5,6 @@ import _entries from 'lodash/entries';
 import _times from 'lodash/times';
 import _flatMap from 'lodash/flatMap';
 import _values from 'lodash/values';
-import _uniqBy from 'lodash/uniqBy';
 
 import data from './Courses.json';
 
@@ -59,21 +58,16 @@ const setupCoursesData = (initialState, data) => {
         })
       })
     })
+  })
 
-    if (courseType === 'Padziļinātie kursi' || courseType === 'Specializētie kursi') {
-      initialState.directionsData[courseType].forEach((e) => {
-        e.courseType = courseType;
-        e.group = courseType;
-        e.selectedCourseIndex = -1;
-        if (courseType === 'Specializētie kursi') {
-          // Converts "Psiholoģija (10. klase)" to "Psihiloģija", etc
-          const normalizedCourses = entries.map(e => ({ ...e, courseName: e.courseName.replace(/\s\(.+$/, '') }))
-          e.courses = _uniqBy(normalizedCourses, e => e.courseName);
-        } else {
-          e.courses = entries.map(e => ({ ...e, disabled: false }));
-        }
-      })
-    }
+  const entriesByDirectionTypes = _entries(_groupBy(data.filter(r => r.directionName), (row) => row.directionType))
+  entriesByDirectionTypes.forEach(([directionType, entries]) => {
+    initialState.directionsData[directionType].forEach((e) => {
+      e.courseType = directionType;
+      e.group = directionType;
+      e.selectedCourseIndex = -1;
+      e.courses = entries.map(e => ({ ...e, disabled: false }));
+    })
   })
 }
 
@@ -84,6 +78,7 @@ const toggleEntries = (entries) => {
       c.disabled = false
     })
   })
+
   // disable courses based on `group`
   const entriesByGroup = _entries(_groupBy(entries, (e) => e.group))
   entriesByGroup.forEach(([group, groupEntries]) => {
@@ -97,6 +92,7 @@ const toggleEntries = (entries) => {
       })
     })
   })
+
   // disable courses based on `uniqBy`
   const uniqBySelected = {};
   entries.forEach((e) => {
@@ -113,6 +109,7 @@ const toggleEntries = (entries) => {
       c.disabled = true;
     });
   });
+
   // disable courses based on `requiredBy`
   const allSelectedCourseNames = entries.map((e) => {
     const selectedCourse = (e.courses[e.selectedCourseIndex] || {});

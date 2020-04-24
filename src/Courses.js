@@ -49,14 +49,16 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
 
   let style = {};
 
-  if (courses.length > 1) {
+  const selectable = !courses[0].auto && courses.length > 1;
+
+  if (selectable) {
     style.backgroundColor = blue[50];
   }
 
   return (
     <TableRow style={style}>
       <TableCell>
-        {  (courses.length > 1)
+        {  selectable
           ? <Select
               className="Course-dropdown"
               onChange={handleChange}
@@ -71,7 +73,7 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
             >
               {courses.map((course, i) =>
                 <MenuItem
-                  key={course.courseName}
+                  key={i}
                   value={i}
                   disabled={course.disabled}
                 >
@@ -95,9 +97,9 @@ function CoursesEntryRow({ courseType, entryIndex, selectedCourseIndex, courses 
 
 function CoursesTypeRow({ courseType, entries }) {
   const selectedCourses = entries.map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
-  const points10 = _sumBy(selectedCourses, (sc) => sc.points10)
-  const points11 = _sumBy(selectedCourses, (sc) => sc.points11)
-  const points12 = _sumBy(selectedCourses, (sc) => sc.points12)
+  const points10 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points10 : 0)
+  const points11 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points11 : 0)
+  const points12 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points12 : 0)
   const classes = useStyles();
 
   return (
@@ -129,9 +131,9 @@ function CoursesTable() {
   const rows = useSelector(state => state.coursesData)
 
   const selectedCourses = _flatMap(_values(rows)).map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
-  const points10 = _sumBy(selectedCourses, (sc) => sc.points10)
-  const points11 = _sumBy(selectedCourses, (sc) => sc.points11)
-  const points12 = _sumBy(selectedCourses, (sc) => sc.points12)
+  const points10 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points10 : 0)
+  const points11 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points11 : 0)
+  const points12 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points12 : 0)
   const totalPoints = points10 + points11 + points12
 
   return (
@@ -172,12 +174,25 @@ function CoursesButtons({ onPrevStep, onNextStep }) {
   const rows = useSelector(state => state.coursesData)
   const entries = _flatMap(_values(rows))
   const selectedCourses = entries.map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
+  
+  const requiredEntries = entries.filter(e => e.courseType === 'Padziļinātie kursi' || e.courseType === 'Pamatkursi')
   const completed = (
-    entries.filter(e => e.selectedCourseIndex >= 0).length === entries.length &&
-    _sumBy(selectedCourses, sc => sc.points10) <= 36 &&
-    _sumBy(selectedCourses, sc => sc.points11) <= 36 &&
-    _sumBy(selectedCourses, sc => sc.points12) <= 36
+    requiredEntries.filter(e => e.selectedCourseIndex >= 0).length === requiredEntries.length &&
+    _sumBy(selectedCourses, sc => sc.pointsCalc ? sc.points10 : 0) <= 36 &&
+    _sumBy(selectedCourses, sc => sc.pointsCalc ? sc.points11 : 0) <= 36 &&
+    _sumBy(selectedCourses, sc => sc.pointsCalc ? sc.points12 : 0) <= 36
   );
+  const onNextStepWithCompletionCheck = () => {
+    if (completed) {
+      onNextStep()
+    } else {
+      window.alert(
+        "Lai dotos uz trešo soli, jābūt norādītiem padziļinātajiem kursiem un pamatkursiem, " +
+        "un stundu skaits nedēļā katrā no gadiem nedrīkst pārniegt 36 mācību stundas! " +
+        "Nepieciešams veikt izmaiņas kursu izvēlē!"
+      )
+    }
+  }
 
   return (
     <Box className="Block-call-to-action">
@@ -185,10 +200,9 @@ function CoursesButtons({ onPrevStep, onNextStep }) {
         Atgriezties uz 1. soli
       </Button>
       <Button
-        variant="contained"
+        variant={completed? "contained" : "outlined"}
         color="primary"
-        onClick={onNextStep}
-        disabled={!completed}
+        onClick={onNextStepWithCompletionCheck}
       >
         Savu plānu esmu apskatījis, vēlos uzzināt vairāk!
       </Button>
@@ -205,9 +219,9 @@ export default function Courses({ onPrevStep, onNextStep }) {
 
       <Typography variant="body1" paragraph>
         Individuālais mācību plāns ir teju gatavs!
-        Zilajos lauciņos vēl jāveic daža kursu izvēles.
+        Zilajos lauciņos vēl jāveic dažas kursu izvēles.
         Apskati savu individuālo plānu.
-        Ja vēlies, izdrukā vai saglabā PDF failā.
+        Ja vēlies, izdrukā vai saglabā PDF failā!
       </Typography>
 
       <CoursesTable />

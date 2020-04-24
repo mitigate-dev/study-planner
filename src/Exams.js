@@ -94,7 +94,17 @@ export default function Exams({ onPrevStep }) {
       </h2>
 
       <Typography variant="body1" paragraph>
-        Šajā sadaļā būs informatīvs teksts par mācībām un eksāmeniem vidusskolā.
+        Lai absolvētu vidusskolu, skolēnam būs jāveido projekta darbs
+        (pētniecības, jaunrades vai sabiedriskais darbs) un jākārto eksāmeni.
+        Katram skolēnam jākārto eksāmeni divos padziļinātajos kursos pēc paša izvēles.
+        Katram skolēnam jākārto eksāmens arī pamatkursos "Matemātika I", "Angļu valoda I" un
+        "Latviešu valoda un literatūra I". Ja šajos mācību priekšmetos kārtots eksāmens
+        padziļinātajā kursā, tad pamatkursā eksāmens nav jākārto.
+        Atzīmē eksāmenus, kurus plāno kārtot!
+      </Typography>
+      <Typography variant="body1" paragraph>
+        Informāciju par mācībām Ogres 1. vidusskolā skati interneta mājas
+        lapas <a href="http://www.ogres1v.lv" target="_blank">www.ogres1v.lv</a> sadaļā "Uzņemšana".
       </Typography>
 
       <h3 className="Block-title">

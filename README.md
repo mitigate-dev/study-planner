@@ -36,4 +36,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ```
 jq -R -s -f csv2json.jq src/Courses.csv > src/Courses.json
+gsed -i 's/"TRUE"/true/g' src/Courses.json
+gsed -i 's/"FALSE"/false/g' src/Courses.json
 ```
