@@ -58,9 +58,10 @@ function ExamsTable({ exams }) {
 }
 
 function ExamsButtons({ onPrevStep }) {
-  const rows = useSelector(state => state.coursesData)
+  const coursesData  = useSelector(state => state.coursesData)
+  const examsData    = useSelector(state => state.examsData);
 
-  const document = <CoursesPDF rows={rows} />;
+  const document = <CoursesPDF coursesData={coursesData} examsData={examsData} />;
 
   return (
     <Box className="Block-call-to-action">
@@ -68,7 +69,7 @@ function ExamsButtons({ onPrevStep }) {
         Atgriezties uz 2. soli
       </Button>
       &nbsp;
-      <PDFDownloadLink document={document} fileName="plans.pdf">
+      <PDFDownloadLink document={document} fileName="plans.pdf" style={{ textDecoration: 'none' }}>
         {({ blob, url, loading, error }) => {
           if (loading) return 'Lūdzu uzgaidiet...';
           return (

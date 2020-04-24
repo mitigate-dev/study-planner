@@ -20,8 +20,9 @@ Font.register({
 const styles = StyleSheet.create({
   page: {
     fontFamily: 'Roboto',
-    padding: 50,
-    fontSize: 12,
+    paddingHorizontal: 48,
+    paddingVertical: 32,
+    fontSize: 9,
     fontWeight: 500
   },
   table: { 
@@ -46,13 +47,18 @@ const styles = StyleSheet.create({
     borderTopWidth: 0 
   }, 
   tableCellText: {
-    margin: 5,
+    margin: 4,
     fontWeight: 500
   },  
   tableCellBoldText: {
-    margin: 5,
+    margin: 4,
     fontWeight: 700
   },
+  titleText: {
+    fontSize: 12,
+    fontWeight: 700,
+    marginVertical: 16
+  }
 });
 
 const Table = ({children}) =>
@@ -67,6 +73,10 @@ const TableHeadCell = ({children, width}) =>
   <View style={[styles.tableCell, { width }]}>
     <Text style={styles.tableCellBoldText}>{children}</Text>
   </View>;
+const Title = ({children, width}) =>
+  <View>
+    <Text style={styles.titleText}>{children}</Text>
+  </View>;
 
 const nullCourse = {
   courseName: '?',
@@ -75,17 +85,20 @@ const nullCourse = {
   points12: 0
 }
 
-export default function CoursesPDF({ rows }) {
-  const selectedCourses = _flatMap(_values(rows)).map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
+export default function CoursesPDF({ coursesData, examsData }) {
+  const selectedCourses = _flatMap(_values(coursesData)).map((e) => e.courses[e.selectedCourseIndex] || nullCourse)
   const points10 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points10 : 0)
   const points11 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points11 : 0)
   const points12 = _sumBy(selectedCourses, (sc) => sc.pointsCalc ? sc.points12 : 0)
   const totalPoints = points10 + points11 + points12
 
+  const selectedExams = examsData.filter(e => e.selected)
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View>
+          <Title>Individuālais mācību plāns</Title>
           <Table>
             <TableRow>
               <TableHeadCell width="40%"></TableHeadCell>
@@ -101,7 +114,7 @@ export default function CoursesPDF({ rows }) {
               <TableHeadCell width="15%">{points12}</TableHeadCell>
               <TableHeadCell width="15%">{totalPoints}</TableHeadCell>
             </TableRow>
-            {_entries(rows).map(([courseType, entries]) =>
+            {_entries(coursesData).map(([courseType, entries]) =>
               <React.Fragment key={courseType}>
                 <TableRow>
                   <TableHeadCell width="40%">{courseType}</TableHeadCell>
@@ -123,6 +136,20 @@ export default function CoursesPDF({ rows }) {
                   )
                 })}
               </React.Fragment>
+            )}
+          </Table>
+
+          <Title>Valsts pārbaudes darbi</Title>
+          <Table>
+            <TableRow>
+              <TableHeadCell width="10%">Klase</TableHeadCell>
+              <TableHeadCell width="90%">Eksāmens</TableHeadCell>
+            </TableRow>
+            {selectedExams.map((exam, i) =>
+              <TableRow key={i}>
+                <TableCell width="10%">{exam.points12 ? '12' : '11'}</TableCell>
+                <TableCell width="90%">{exam.courseName}</TableCell>
+              </TableRow>
             )}
           </Table>
         </View>
