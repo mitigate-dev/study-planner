@@ -217,7 +217,7 @@ export default function Courses({ onPrevStep, onNextStep }) {
         Otrais solis - iepazīsti individuālo plānu!
       </h2>
 
-      <Typography variant="body1" paragraph>
+      <Typography variant="body1" paragraph align="justify">
         Individuālais mācību plāns ir teju gatavs!
         Zilajos lauciņos vēl jāveic dažas kursu izvēles.
         Apskati savu individuālo plānu.
