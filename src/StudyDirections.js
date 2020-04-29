@@ -170,7 +170,7 @@ function StudyDirections({ onNextStep }) {
       </Typography>
 
       <Typography variant="body1" paragraph align="justify">
-        Lai atvieglotu padziļināto un specializēto kursu izvēli, esam sagatavojuši padziļināto un specializēto kursu ieteikumus katram no Latvijās piedāvātajiem studiju virzieniem. Šie ieteikumi var atvieglot padziļināto un specializēto kursu izvēli.
+        Lai atvieglotu padziļināto un specializēto kursu izvēli, esam sagatavojuši padziļināto un specializēto kursu ieteikumus katram no Latvijā piedāvātajiem studiju virzieniem. Šie ieteikumi var atvieglot padziļināto un specializēto kursu izvēli.
       </Typography>
 
       <Select
