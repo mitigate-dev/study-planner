@@ -163,6 +163,12 @@ const reducer = createReducer(initialState, {
     const entries = _flatMap(_values(state.directionsData))
     toggleEntries(entries)
   },
+  MOVE_DIRECTION_COURSE: (state, { courseType, entryIndex, toIndex }) => {
+    const rows = state.directionsData[courseType];
+    const row = rows.splice(entryIndex, 1)[0];
+    rows.splice(toIndex, 0, row);
+    state.directionsData[courseType] = rows;
+  },
   // Select TOP 3 courses selected in step 1 and transfer them to step 2
   CONFIRM_DIRECTION_COURSES: (state) => {
     const courseType = "Padziļinātie kursi";

@@ -79,7 +79,7 @@ const Title = ({children, width}) =>
   </View>;
 
 const nullCourse = {
-  courseName: '?',
+  courseName: 'Kurss nav izvēlēts',
   points10: 0,
   points11: 0,
   points12: 0
@@ -123,7 +123,7 @@ export default function CoursesPDF({ coursesData, examsData }) {
                   <TableHeadCell width="15%"></TableHeadCell>
                   <TableHeadCell width="15%"></TableHeadCell>
                 </TableRow>
-                {entries.map((entry, i) => {
+                {entries.filter(e => e.selectedCourseIndex !== -1).map((entry, i) => {
                   const selectedCourse = entry.courses[entry.selectedCourseIndex] || nullCourse;
                   return (
                     <TableRow key={i}>

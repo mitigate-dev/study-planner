@@ -120,10 +120,6 @@ export default function Exams({ onPrevStep }) {
         padziļinātajā kursā, tad pamatkursā eksāmens nav jākārto.
         Atzīmē eksāmenus, kurus plāno kārtot!
       </Typography>
-      <Typography variant="body1" paragraph align="justify">
-        Informāciju par mācībām Ogres 1. vidusskolā skati interneta mājas
-        lapas <a href="http://www.ogres1v.lv" target="_blank">www.ogres1v.lv</a> sadaļā "Uzņemšana".
-      </Typography>
 
       <h3 className="Block-title">
         Valsts pārbaudes darbs padziļinātajā kursā (izvēlies divus)
@@ -136,6 +132,13 @@ export default function Exams({ onPrevStep }) {
       </h3>
 
       <ExamsTable exams={basicExams} />
+
+      <Box mt={2}>
+        <Typography variant="body1" paragraph align="justify">
+          Informāciju par mācībām un uzņemšanu Ogres 1. vidusskolā skati interneta mājas
+          lapas <a href="http://www.ogres1v.lv" target="_blank">www.ogres1v.lv</a> sadaļā "Uzņemšana".
+        </Typography>
+      </Box>
 
       <ExamsButtons onPrevStep={onPrevStep} />
     </React.Fragment>

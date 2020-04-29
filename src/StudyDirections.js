@@ -1,6 +1,7 @@
 import React from 'react';
 import rows from './StudyDirectionsData';
 import Box from '@material-ui/core/Box';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -12,6 +13,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import ArrowUpward from '@material-ui/icons/ArrowUpward';
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -25,8 +28,28 @@ function StudyDirectionCoursesEntryRow({ entryIndex, entry }) {
     dispatch({ type: 'SELECT_DIRECTION_COURSE', courseType, entryIndex, selectedCourseIndex })
   }
 
+  const moveUp = (event) => {
+    const selectedCourseIndex = event.target.value;
+    dispatch({ type: 'MOVE_DIRECTION_COURSE', courseType, entryIndex, toIndex: entryIndex - 1 })
+  }
+
+  const moveDown = (event) => {
+    const selectedCourseIndex = event.target.value;
+    dispatch({ type: 'MOVE_DIRECTION_COURSE', courseType, entryIndex, toIndex: entryIndex + 1 })
+  }
+
   return (
     <TableRow>
+      <TableCell style={{ width: '5%', padding: 0 }}>
+        <ButtonGroup variant="text" size="small" color="primary">
+          <Button disabled={entryIndex === 0} onClick={moveUp}>
+            <ArrowUpward />
+          </Button>
+          <Button disabled={entryIndex === 4} onClick={moveDown}>
+            <ArrowDownward />
+          </Button>
+        </ButtonGroup>
+      </TableCell>
       <TableCell style={{ width: '5%' }}>#{entryIndex + 1}</TableCell>
       <TableCell>
         <Select
@@ -41,6 +64,9 @@ function StudyDirectionCoursesEntryRow({ entryIndex, entry }) {
             <em>Izvēlies kursu ...</em>
           )}
         >
+          <MenuItem value="">
+            <em>Kurss nav izvēlēts</em>
+          </MenuItem>
           {courses.map((course, i) =>
             <MenuItem
               key={course.directionName}
@@ -62,7 +88,7 @@ function StudyDirectionCourses({ entries, title }) {
       <Table size="small" stickyHeader aria-label="Courses table">
         <TableHead>
           <TableRow>
-            <TableCell colSpan={2}>{title}</TableCell>
+            <TableCell colSpan={3}>{title}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -126,20 +152,26 @@ function StudyDirections({ onNextStep }) {
         Studiju virzieni un ieteikumi padziļināto kursu izvēlei
       </h2>
 
-      <ul className="Default-list">
-        <li>
-          Ogres 1. vidusskola piedāvās deviņus padziļinātos kursus - Latviešu valoda un literatūra II, Angļu valoda II, Sociālās zinātnes II, Fizika II, Ķīmija II, Bioloģija II, Matemātika II, Dizains un tehnoloģijas II, Programmēšana II.
-        </li>
-        <li>
-          Skolēns nevar vienlaicīgi apgūt padziļināto kursu Dizains un tehnoloģijas II un Programmēšana II.
-        </li>
-        <li>
-          Skolēniem tiks piedāvāts vai nu padziļinātais kurss Ķīmija II, vai arī padziļinātais kurss Bioloģija II; skolas piedāvājums atkarīgs no skolēnu intereses par šiem kursiem.
-        </li>
-        <li>
-          Ogres 1. vidusskola piedāvās specializētos kursus - Spāņu valoda, Franču valoda, Filozofija, Uzņēmējdarbības pamati, Projektu vadība, Psiholoģija, Cilvēka bioloģija.
-        </li>
-      </ul>
+      <Typography variant="body1" paragraph align="justify" component="div">
+        <ul className="Default-list">
+          <li>
+            Ogres 1. vidusskola piedāvās deviņus padziļinātos kursus - Latviešu valoda un literatūra II, Angļu valoda II, Sociālās zinātnes II, Fizika II, Ķīmija II, Bioloģija II, Matemātika II, Dizains un tehnoloģijas II, Programmēšana II.
+          </li>
+          <li>
+            Skolēns nevar vienlaicīgi apgūt padziļināto kursu Dizains un tehnoloģijas II un Programmēšana II.
+          </li>
+          <li>
+            Skolēniem tiks piedāvāts vai nu padziļinātais kurss Ķīmija II, vai arī padziļinātais kurss Bioloģija II; skolas piedāvājums atkarīgs no skolēnu intereses par šiem kursiem.
+          </li>
+          <li>
+            Ogres 1. vidusskola piedāvās specializētos kursus - Spāņu valoda, Franču valoda, Filozofija, Uzņēmējdarbības pamati, Projektu vadība, Psiholoģija, Cilvēka bioloģija.
+          </li>
+        </ul>
+      </Typography>
+
+      <Typography variant="body1" paragraph align="justify">
+        Lai atvieglotu padziļināto un specializēto kursu izvēli, esam sagatavojuši padziļināto un specializēto kursu ieteikumus katram no Latvijās piedāvātajiem studiju virzieniem. Šie ieteikumi var atvieglot padziļināto un specializēto kursu izvēli.
+      </Typography>
 
       <Select
         autoWidth={true}
@@ -147,7 +179,7 @@ function StudyDirections({ onNextStep }) {
         displayEmpty
         variant="outlined"
         value={direction || ""}
-        renderValue={(row) => (row ? row.study_direction : <em>Izvēlies virzienu ...</em>)}
+        renderValue={(row) => (row ? row.study_direction : <em>Izvēlies iespējamo studiju virzienu ...</em>)}
         onChange={(e) => selectDirection(e.target.value)}
       >
         {rows.map(row => (
@@ -172,10 +204,10 @@ function StudyDirections({ onNextStep }) {
       {direction &&
         <Grid container spacing={3}>
           <Grid item sm={6} xs={12}>
-            <StudyDirectionCourses entries={directionsData['Padziļinātie kursi']} title="Mana padzīļināto kursu izvēlē (prioritārā secībā)" />
+            <StudyDirectionCourses entries={directionsData['Padziļinātie kursi']} title="Mana padziļināto kursu izvēle (prioritārā secībā)" />
           </Grid>
           <Grid item sm={6} xs={12}>
-            <StudyDirectionCourses entries={directionsData['Specializētie kursi']} title="Mana specializēto kursu izvēlē (prioritārā secībā)" />
+            <StudyDirectionCourses entries={directionsData['Specializētie kursi']} title="Mana specializēto kursu izvēle (prioritārā secībā)" />
           </Grid>
         </Grid>
       }
