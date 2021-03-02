@@ -137,36 +137,38 @@ function CoursesTable() {
   const totalPoints = points10 + points11 + points12
 
   return (
-    <Paper>
-      <Table size="small" stickyHeader aria-label="Courses table">
-        <TableHead>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell><strong>10. kl.</strong></TableCell>
-            <TableCell><strong>11. kl.</strong></TableCell>
-            <TableCell><strong>12. kl.</strong></TableCell>
-            <TableCell><strong>Kopā</strong></TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className={classes.headerRowCell}><strong>Mācību stundu kopskaits nedēļā</strong></TableCell>
-            <TableCell className={classes.headerRowCell}><strong><Points value={points10} max={36} /></strong></TableCell>
-            <TableCell className={classes.headerRowCell}><strong><Points value={points11} max={36} /></strong></TableCell>
-            <TableCell className={classes.headerRowCell}><strong><Points value={points12} max={36} /></strong></TableCell>
-            <TableCell className={classes.headerRowCell}><strong><Points value={totalPoints} /></strong></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {_entries(rows).map(([courseType, entries]) =>
-            <React.Fragment key={courseType}>
-              <CoursesTypeRow courseType={courseType} entries={entries} />
-              {entries.map((entry, i) =>
-                <CoursesEntryRow key={i} courseType={courseType} entryIndex={i} {...entry} />
-              )}
-            </React.Fragment>
-          )}
-        </TableBody>
-      </Table>
-    </Paper>
+    <Box my={2}>
+      <Paper>
+        <Table size="small" stickyHeader aria-label="Courses table">
+          <TableHead>
+            <TableRow>
+              <TableCell></TableCell>
+              <TableCell><strong>10. kl.</strong></TableCell>
+              <TableCell><strong>11. kl.</strong></TableCell>
+              <TableCell><strong>12. kl.</strong></TableCell>
+              <TableCell><strong>Kopā</strong></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className={classes.headerRowCell}><strong>Mācību stundu kopskaits nedēļā</strong></TableCell>
+              <TableCell className={classes.headerRowCell}><strong><Points value={points10} max={36} /></strong></TableCell>
+              <TableCell className={classes.headerRowCell}><strong><Points value={points11} max={36} /></strong></TableCell>
+              <TableCell className={classes.headerRowCell}><strong><Points value={points12} max={36} /></strong></TableCell>
+              <TableCell className={classes.headerRowCell}><strong><Points value={totalPoints} /></strong></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {_entries(rows).map(([courseType, entries]) =>
+              <React.Fragment key={courseType}>
+                <CoursesTypeRow courseType={courseType} entries={entries} />
+                {entries.map((entry, i) =>
+                  <CoursesEntryRow key={i} courseType={courseType} entryIndex={i} {...entry} />
+                )}
+              </React.Fragment>
+            )}
+          </TableBody>
+        </Table>
+      </Paper>
+    </Box>
   )
 }
 
@@ -225,6 +227,11 @@ export default function Courses({ onPrevStep, onNextStep }) {
       </Typography>
 
       <CoursesTable />
+
+      <Typography variant="body1" paragraph align="justify">
+        * Kurss Literatūra I tiks īstenots kā atsevišķš kurss vai kopā ar kursu Kultūra un māksla I.
+      </Typography>
+
       <CoursesButtons onPrevStep={onPrevStep} onNextStep={onNextStep} />
     </React.Fragment>
   );

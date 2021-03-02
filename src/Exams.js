@@ -31,7 +31,7 @@ function ExamsRow({ examIndex, exam }) {
         />
       </TableCell>
       <TableCell>{exam.points12 ? '12' : '11'}</TableCell>
-      <TableCell>{exam.courseName}</TableCell>
+      <TableCell>{exam.courseName.replace(/\*/, '')}</TableCell>
     </TableRow>
   )
 }

@@ -10,7 +10,7 @@ def objectify(headers):
 def csv2table:
   # For jq 1.4, replace the following line by:  def trim: .;
   def trim: sub("^ +";"") |  sub(" +$";"");
-  split("\r\n") | map( split(",") | map(trim) );
+  split("\n") | map( split(",") | map(trim) );
 
 def csv2json:
   csv2table

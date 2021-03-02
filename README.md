@@ -32,10 +32,8 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Convert csv to json
+## Convert Courses.csv to Courses.json
 
-```
-jq -R -s -f csv2json.jq src/Courses.csv > src/Courses.json
-gsed -i 's/"TRUE"/true/g' src/Courses.json
-gsed -i 's/"FALSE"/false/g' src/Courses.json
+```bash
+yarn courses-convert
 ```
