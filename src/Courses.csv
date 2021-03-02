@@ -9,7 +9,8 @@ Padziļinātie kursi,Matemātika II,Padziļinātie kursi,Matemātika II,,TRUE,0,
 Padziļinātie kursi,Dizains un tehnoloģijas II,Padziļinātie kursi,Dizains un tehnoloģijas II,,TRUE,0,0,6,A,3,DP,,TRUE,
 Padziļinātie kursi,Programmēšana II,Padziļinātie kursi,Programmēšana II,,TRUE,0,0,6,A,3,DP,,TRUE,
 Padziļinātie kursi,Projekta darbs,,,,TRUE,0,0,2,X,1,,,,
-Pamatkursi,Latviešu valoda un literatūra I,,,,TRUE,6,6,0,B,1,,,TRUE,Latviešu valoda un literatūra II
+Pamatkursi,Latviešu valoda I,,,,TRUE,3,3,0,B,1,,,TRUE,Latviešu valoda un literatūra II
+Pamatkursi,Literatūra I*,,,,TRUE,3,3,0,B2,1,,,TRUE,Latviešu valoda un literatūra II
 Pamatkursi,Angļu valoda I,,,,TRUE,4,4,0,C,1,,,TRUE,Angļu valoda II
 Pamatkursi,Vācu valoda (2. svešvaloda),,,,TRUE,2,2,2,D,1,,,,
 Pamatkursi,Krievu valoda (2. svešvaloda),,,,TRUE,2,2,2,D,1,,,,
@@ -21,7 +22,7 @@ Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Angļu valoda II,,
 Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Sociālās zinātnes II,,
 Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Fizika II,,
 Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Ķīmija II,,
-Pamatkursi,Ķīmija I,,,TRUE,TRUE,0,3,3,H,1,KK,Bioloģija II,,
+Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Bioloģija II,,
 Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Matemātika II,,
 Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Dizains un tehnoloģijas II,,
 Pamatkursi,Ķīmija I,,,TRUE,TRUE,3,3,0,H,1,KK,Programmēšana II,,

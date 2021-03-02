@@ -127,7 +127,7 @@ export default function CoursesPDF({ coursesData, examsData }) {
                   const selectedCourse = entry.courses[entry.selectedCourseIndex] || nullCourse;
                   return (
                     <TableRow key={i}>
-                      <TableCell width="40%">{selectedCourse.courseName}</TableCell>
+                      <TableCell width="40%">{selectedCourse.courseName.replace(/\*/, '')}</TableCell>
                       <TableCell width="15%">{selectedCourse.points10}</TableCell>
                       <TableCell width="15%">{selectedCourse.points11}</TableCell>
                       <TableCell width="15%">{selectedCourse.points12}</TableCell>
