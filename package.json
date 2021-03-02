@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "courses-convert": "jq -R -s -f csv2json.jq src/Courses.csv > src/Courses.json; gsed -i 's/\"TRUE\"/true/g' src/Courses.json; gsed -i 's/\"FALSE\"/false/g' src/Courses.json"
   },
   "eslintConfig": {
     "extends": "react-app"

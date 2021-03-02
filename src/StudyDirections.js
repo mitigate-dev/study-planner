@@ -143,9 +143,9 @@ function StudyDirections({ onNextStep }) {
       </Typography>
       <Typography variant="body1" paragraph align="justify">
         Līdztekus padziļinātajiem kursiem skolēnam ir iespēja izvēlēties <b>specializētos kursus vai fakultatīvos kursus</b>.
-        Specializēto un fakultatīvo kursu izvēle un apguve ir brīvprātīga! Ogres 1. vidusskola piedāvās septiņus
+        Specializēto un fakultatīvo kursu izvēle un apguve ir brīvprātīga! Ogres 1. vidusskola piedāvās sešus
         specializētos vai fakultatīvos kursus - Spāņu valoda, Franču valoda, Filozofija, Uzņēmējdarbības pamati,
-        Projektu vadība, Psiholoģija, Cilvēka bioloģija.
+        Projektu vadība, Psiholoģija.
       </Typography>
 
       <h2 className="Block-title">
@@ -159,9 +159,6 @@ function StudyDirections({ onNextStep }) {
           </li>
           <li>
             Skolēns nevar vienlaicīgi apgūt padziļināto kursu Dizains un tehnoloģijas II un Programmēšana II.
-          </li>
-          <li>
-            Skolēniem tiks piedāvāts vai nu padziļinātais kurss Ķīmija II, vai arī padziļinātais kurss Bioloģija II; skolas piedāvājums atkarīgs no skolēnu intereses par šiem kursiem.
           </li>
           <li>
             Ogres 1. vidusskola piedāvās specializētos kursus - Spāņu valoda, Franču valoda, Filozofija, Uzņēmējdarbības pamati, Projektu vadība, Psiholoģija, Cilvēka bioloģija.

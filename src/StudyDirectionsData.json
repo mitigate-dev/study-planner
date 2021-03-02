@@ -32,7 +32,7 @@
   {
       "nr":"7",
       "study_direction": "Psiholoģija",
-      "recomendations": "Nozīmīgi apgūt kursu  Latviešu valoda un literatūra II, Sociālās zinātnes II. Ieteicams apgūt Angļu valoda II, specializētos kursus Psiholoģija, Filozofija, Cilvēka bioloģija"
+      "recomendations": "Nozīmīgi apgūt kursu Latviešu valoda un literatūra II, Sociālās zinātnes II. Ieteicams apgūt Angļu valoda II, specializētos kursus Psiholoģija, Filozofija."
   },
   {
       "nr":"8",
@@ -62,7 +62,7 @@
   {
       "nr":"13",
       "study_direction": "Dzīvās dabas zinātnes",
-      "recomendations": "Nozīmīgi apgūt  Bioloģija II. Ieteicams apgūt Fizika II, specializētos kursus Projektu vadība, Cilvēka bioloģija"
+      "recomendations": "Nozīmīgi apgūt Bioloģija II vai Ķīmija II. Ieteicams apgūt Fizika II, specializēto kursu Projektu vadība."
   },
   {
       "nr":"14",
@@ -72,7 +72,7 @@
   {
       "nr":"15",
       "study_direction": "Ķīmija, ķīmijas tehnoloģijas un biotehnoloģija",
-      "recomendations": "Nozīmīgi apgūt  Ķīmija II, Fizika II. Ieteicams apgūt Matemātika II, specializētos kursus Projektu vadība, Cilvēka bioloģija"
+      "recomendations": "Nozīmīgi apgūt Ķīmija II, Fizika II. Ieteicams apgūt Bioloģija II un Matemātika II, specializēto kursu Projektu vadība."
   },
   {
       "nr":"16",
@@ -107,17 +107,17 @@
   {
       "nr":"22",
       "study_direction": "Lauksaimniecība, mežsaimniecība, zivsaimniecība un pārtikas higiēna",
-      "recomendations": "Nozīmīgi apgūt  Bioloģija II. Ieteicams apgūt Fizika II,  specializētos kursus  Uzņēmējdarbības pamati"
+      "recomendations": "Nozīmīgi apgūt Bioloģija II. Ieteicams apgūt Ķīmija II vai Fizika II, specializētos kursu Uzņēmējdarbības pamati."
   },
   {
       "nr":"23",
       "study_direction": "Veterinārmedicīna",
-      "recomendations": "Nozīmīgi apgūt  Ķīmija II. Ieteicams apgūt  Angļu valoda II,  specializētos kursus  Cilvēka bioloģija "
+      "recomendations": "Nozīmīgi apgūt Bioloģija II un Ķīmija II. Ieteicams apgūt Angļu valoda II."
   },
   {
       "nr":"24",
       "study_direction": "Veselības aprūpe",
-      "recomendations": "Nozīmīgi apgūt  Bioloģija II. Ieteicams apgūt Sociālās zinātnes II, specializētos kursus Psiholoģija"
+      "recomendations": "Nozīmīgi apgūt Bioloģija II. Ieteicams apgūt Sociālās zinātnes II un Ķīmija II, specializētos kursus Psiholoģija."
   },
   {
       "nr":"25",
@@ -137,17 +137,17 @@
   {
       "nr":"28",
       "study_direction": "Vides aizsardzība",
-      "recomendations": "Nozīmīgi apgūt  Bioloģija II,  Sociālās zinātnes II. Ieteicams apgūt Fizika II, specializēto kursu Projektu vadība, Uzņēmējdarbības pamati"
+      "recomendations": "Nozīmīgi apgūt Bioloģija II, Sociālās zinātnes II. Ieteicams apgūt Ķīmija II, specializēto kursu Projektu vadība, Uzņēmējdarbības pamati."
   },
   {
       "nr":"29",
       "study_direction": "Iekšējā drošība un civilā aizsardzība",
-      "recomendations": "Nozīmīgi apgūt   Sociālās zinātnes II, Angļu valoda II Ieteicams apgūt  Fizika II, specializēto kursu  Psiholoģija, Cilvēka bioloģija."
+      "recomendations": "Nozīmīgi apgūt Sociālās zinātnes II, Angļu valoda II Ieteicams apgūt Fizika II, specializēto kursu Psiholoģija."
   },
   {
       "nr":"30",
       "study_direction": "Militārā aizsardzība",
-      "recomendations": "Nozīmīgi apgūt   Sociālās zinātnes II, Angļu valoda II. Ieteicams apgūt   Fizika II, specializēto kursu  Psiholoģija, Cilvēka bioloģija."
+      "recomendations": "Nozīmīgi apgūt Sociālās zinātnes II, Angļu valoda II. Ieteicams apgūt Fizika II, specializēto kursu Psiholoģija."
   },
   {
       "nr":"31",
