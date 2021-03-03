@@ -229,7 +229,7 @@ export default function Courses({ onPrevStep, onNextStep }) {
       <CoursesTable />
 
       <Typography variant="body1" paragraph align="justify">
-        * Kurss Literatūra I tiks īstenots kā atsevišķš kurss vai kopā ar kursu Kultūra un māksla I.
+        * Kurss Literatūra I tiks īstenots kā atsevišķs kurss vai kopā ar kursu Kultūra un māksla I.
       </Typography>
 
       <CoursesButtons onPrevStep={onPrevStep} onNextStep={onNextStep} />
