@@ -200,8 +200,8 @@
     "repeat": 1,
     "uniqBy": "",
     "requiredBy": "",
-    "exam": true,
-    "examExcludedBy": "Latviešu valoda un literatūra II"
+    "exam": "",
+    "examExcludedBy": ""
   },
   {
     "courseType": "Pamatkursi",
